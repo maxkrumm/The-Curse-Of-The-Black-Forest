@@ -56,8 +56,8 @@
     "skipLibCheck": true
   },
   "include": [
-    "./../../Fudge",
-    "./../../Build",
-    "Source"
-, "Template/Source/01_text.ts"  ] 
+    "Fudge",
+    "FudgeStory",
+    "Source",
+  ]
 }

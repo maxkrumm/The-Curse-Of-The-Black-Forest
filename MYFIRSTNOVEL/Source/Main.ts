@@ -1,4 +1,4 @@
-namespace Template {
+namespace myfirstnovel {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
 
@@ -25,7 +25,7 @@ namespace Template {
   export let locations = {
     inferno: {
       name: "Inferno",
-      background: "Images/Backgrounds/inferno.png"
+      background: "../Images/Backgrounds/inferno.png"
     }
   };
 
@@ -34,14 +34,14 @@ namespace Template {
     Narrator: {
       name: ""
     },
-    Protagonist:{
+    Protagonist: {
       name: "James"
     },
     Risa: {
       name: "Risa",
       origin: ƒS.ORIGIN.BOTTOMRIGHT,
       pose: {
-        normal:"Images/Characters/risa_normal.png",
+        normal: "../Images/Characters/risa_normal.png",
         smile: "",
         sad: ""
       }

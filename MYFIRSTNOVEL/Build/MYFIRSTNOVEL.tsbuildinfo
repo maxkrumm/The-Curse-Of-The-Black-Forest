@@ -2,7 +2,9 @@
   "bundle": {
     "commonSourceDirectory": "..",
     "sourceFiles": [
-      "../Source/01_Hallway.ts",
+      "../Source/01_Entrance.ts",
+      "../Source/02_Hallway.ts",
+      "../Source/03_Pool.ts",
       "../Source/Main.ts"
     ],
     "js": {
@@ -15,7 +17,7 @@
         },
         {
           "pos": 15,
-          "end": 2906,
+          "end": 9192,
           "kind": "text"
         }
       ],
@@ -43,11 +45,11 @@
       "sections": [
         {
           "pos": 0,
-          "end": 913,
+          "end": 1473,
           "kind": "text"
         }
       ]
     }
   },
-  "version": "4.2.3"
+  "version": "4.2.4"
 }

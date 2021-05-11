@@ -2,12 +2,12 @@ namespace myfirstnovel {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
 
-  console.log("FudgeStoryyyyyyyyyyyyyyy");
+  console.log("Loaded!");
 
   //define transition
   export let transition = {
     clock: {
-      duration: 3,
+      duration: 1,
       alpha: "",
       edge: 1
     }
@@ -23,10 +23,18 @@ namespace myfirstnovel {
   };
 
   export let locations = {
-    inferno: {
-      name: "Inferno",
-      background: "../Images/Backgrounds/inferno.png"
-    }
+    entrance: {
+      name: "Entrance",
+      background: "Images/Backgrounds/bg_entrance.jpg"
+    },
+    hallway: {
+      name: "Hallway",
+      background: "Images/Backgrounds/bg_hallway.jpg"
+    },
+    pool: {
+      name: "Pool",
+      background: "Images/Backgrounds/bg_pool.jpg"
+    },
   };
 
   //define characters
@@ -38,12 +46,21 @@ namespace myfirstnovel {
       name: "James"
     },
     Risa: {
-      name: "Risa",
-      origin: ƒS.ORIGIN.BOTTOMRIGHT,
+      name: "リサ",
+      origin: ƒS.ORIGIN.BOTTOMLEFT,
       pose: {
-        normal: "../Images/Characters/risa_normal.png",
-        smile: "",
-        sad: ""
+        normal: "Images/Characters/ch_risa_normal.png",
+        smile: "Images/Characters/ch_risa_smile.png",
+        angry: "Images/Characters/ch_risa_angry.png"
+      }
+    },
+    Sae: {
+      name: "サエ",
+      origin: ƒS.ORIGIN.BOTTOMLEFT,
+      pose: {
+        normal: "Images/Characters/ch_sae_normal.png",
+        smile: "Images/Characters/ch_sae_smile.png",
+        angry: ""
       }
     }
 
@@ -74,7 +91,9 @@ namespace myfirstnovel {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: ƒS.Scenes = [
-      { scene: Hallway, name: "Hallway" }
+      { scene: Entrance, name: "Entrance" },
+      { scene: Hallway, name: "Hallway" },
+      { scene: Pool, name: "Pool" }
     ];
 
     // start the sequence

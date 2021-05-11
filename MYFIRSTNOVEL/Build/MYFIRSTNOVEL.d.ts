@@ -1,7 +1,13 @@
-declare namespace MYFIRSTNOVEL {
+declare namespace myfirstnovel {
+    function Entrance(): ƒS.SceneReturn;
+}
+declare namespace myfirstnovel {
     function Hallway(): ƒS.SceneReturn;
 }
-declare namespace MYFIRSTNOVEL {
+declare namespace myfirstnovel {
+    function Pool(): ƒS.SceneReturn;
+}
+declare namespace myfirstnovel {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let transition: {
@@ -16,7 +22,15 @@ declare namespace MYFIRSTNOVEL {
         click: string;
     };
     let locations: {
-        inferno: {
+        entrance: {
+            name: string;
+            background: string;
+        };
+        hallway: {
+            name: string;
+            background: string;
+        };
+        pool: {
             name: string;
             background: string;
         };
@@ -34,7 +48,16 @@ declare namespace MYFIRSTNOVEL {
             pose: {
                 normal: string;
                 smile: string;
-                sad: string;
+                angry: string;
+            };
+        };
+        Sae: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+                smile: string;
+                angry: string;
             };
         };
     };

@@ -39,9 +39,6 @@ declare namespace myfirstnovel {
         Narrator: {
             name: string;
         };
-        Protagonist: {
-            name: string;
-        };
         Risa: {
             name: string;
             origin: ƒ.ORIGIN2D;
@@ -59,6 +56,15 @@ declare namespace myfirstnovel {
                 smile: string;
                 angry: string;
             };
+        };
+    };
+    let dataForProgress: {
+        Protagonist: {
+            name: string;
+        };
+        Points: {
+            Risa: number;
+            Sae: number;
         };
     };
 }

@@ -8,7 +8,7 @@ namespace myfirstnovel {
   export let transition = {
     clock: {
       duration: 1,
-      alpha: "",
+      alpha: "Images/Transitions/circlewipe-cw.jpg",
       edge: 1
     }
   };
@@ -42,9 +42,6 @@ namespace myfirstnovel {
     Narrator: {
       name: ""
     },
-    Protagonist: {
-      name: "James"
-    },
     Risa: {
       name: "リサ",
       origin: ƒS.ORIGIN.BOTTOMLEFT,
@@ -65,6 +62,19 @@ namespace myfirstnovel {
     }
 
   };
+
+
+  // Variablen die für den Spielverlauf gespeichert werden sollen
+  export let dataForProgress =
+  {
+    Protagonist: {
+      name: "James"
+    },
+    Points: {
+      Risa: 0,
+      Sae: 0
+    }
+  }
 
 
 
@@ -96,6 +106,7 @@ namespace myfirstnovel {
       { scene: Pool, name: "Pool" }
     ];
 
+    ƒS.Progress.setData(dataForProgress);
     // start the sequence
     ƒS.Progress.go(scenes);
   }

@@ -36,11 +36,15 @@ namespace myfirstnovel {
       iSayNo: "自分のこと構え！"
     };
 
-    let firstDialogueElement = await ƒS.Menu.getInput(firstDialogueElementAnswers, "class");
+    let firstDialogueElement = await ƒS.Menu.getInput(firstDialogueElementAnswers, "Decisions");
 
     switch (firstDialogueElement) {
       case firstDialogueElementAnswers.iSayOk:
         //continue writing on this path here
+        dataForProgress.Points.Risa += 10;
+        dataForProgress.Points.Sae += 10;
+        console.log(dataForProgress.Points.Risa);
+        console.log(dataForProgress.Points.Sae);
         await ƒS.Speech.tell(characters.Risa, "分かりました。よろしくお願いします！")
         await ƒS.update(1);
         ƒS.Character.hide(characters.Risa);
@@ -48,6 +52,8 @@ namespace myfirstnovel {
         await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
         break;
       case firstDialogueElementAnswers.iSayYes:
+        dataForProgress.Points.Risa += 50;
+        console.log(dataForProgress.Points.Risa);
         await ƒS.Speech.tell(characters.Risa, "もちろんです！絶対ほかのメンバーにも伝えておきます！。よろしくお願いします！")
         await ƒS.update(1);
         ƒS.Character.hide(characters.Risa);

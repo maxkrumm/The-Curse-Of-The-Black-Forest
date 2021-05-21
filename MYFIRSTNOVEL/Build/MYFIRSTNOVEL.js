@@ -3,26 +3,15 @@ var myfirstnovel;
 (function (myfirstnovel) {
     async function Entrance() {
         console.log("Entrance");
-        /*  let text = {
-            Narrator: {
-              T0000: "",
-              T0001: ""
-            },
-            Protagonist:{
-              T0000:"",
-              T0001: ""
-            },
-            Risa: {
-              T0000: "Willkommen",
-              T0001: ""
-            }
-          };   */
         myfirstnovel.ƒS.Speech.setTickerDelays(30, 2);
         await myfirstnovel.ƒS.Location.show(myfirstnovel.locations.entrance);
-        myfirstnovel.ƒS.Sound.fade(myfirstnovel.sound.backgroundTheme, 0.2, 0.1, true);
+        //   ƒS.Sound.fade(sound.backgroundTheme, 0.2, 0.1, true);
         await myfirstnovel.ƒS.update(1);
-        //await ƒS.Speech.tell(characters.Risa, text.Risa.T0000);
         await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Narrator, "Today is your first day at your new job as a Swim Teacher at Ryukoku University!");
+        // Um Text direkt anzuzeigen  ƒS.Speech.set(characters.Narrator, "Today is your first day at your new job as a Swim Teacher at Ryukoku University!");
+        //Name Field
+        myfirstnovel.dataForProgress.Protagonist.name = await myfirstnovel.ƒS.Speech.getInput();
+        console.log(myfirstnovel.dataForProgress.Protagonist.name);
         await myfirstnovel.ƒS.update(1);
         myfirstnovel.ƒS.Speech.clear();
         // Musik ausblenden ƒS.Sound.fade(sound.backgroundTheme, 0, 1);
@@ -62,10 +51,14 @@ var myfirstnovel;
             iSayYes: "はい！はい！はい！はい！",
             iSayNo: "自分のこと構え！"
         };
-        let firstDialogueElement = await myfirstnovel.ƒS.Menu.getInput(firstDialogueElementAnswers, "class");
+        let firstDialogueElement = await myfirstnovel.ƒS.Menu.getInput(firstDialogueElementAnswers, "Decisions");
         switch (firstDialogueElement) {
             case firstDialogueElementAnswers.iSayOk:
                 //continue writing on this path here
+                myfirstnovel.dataForProgress.Points.Risa += 10;
+                myfirstnovel.dataForProgress.Points.Sae += 10;
+                console.log(myfirstnovel.dataForProgress.Points.Risa);
+                console.log(myfirstnovel.dataForProgress.Points.Sae);
                 await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Risa, "分かりました。よろしくお願いします！");
                 await myfirstnovel.ƒS.update(1);
                 myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Risa);
@@ -73,6 +66,8 @@ var myfirstnovel;
                 await myfirstnovel.ƒS.update(myfirstnovel.transition.clock.duration, myfirstnovel.transition.clock.alpha, myfirstnovel.transition.clock.edge);
                 break;
             case firstDialogueElementAnswers.iSayYes:
+                myfirstnovel.dataForProgress.Points.Risa += 50;
+                console.log(myfirstnovel.dataForProgress.Points.Risa);
                 await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Risa, "もちろんです！絶対ほかのメンバーにも伝えておきます！。よろしくお願いします！");
                 await myfirstnovel.ƒS.update(1);
                 myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Risa);
@@ -97,33 +92,42 @@ var myfirstnovel;
 (function (myfirstnovel) {
     async function Pool() {
         console.log("Pool");
-        /*   let text = {
-             Narrator: {
-               T0000: "",
-               T0001: ""
-             },
-             Protagonist:{
-               T0000:"",
-               T0001: ""
-             },
-             Risa: {
-               T0000: "Willkommen",
-               T0001: ""
-             }
-           }; */
+        let text = {
+            Narrator: {
+                T0000: "これを見ている人の中で日本語を読める人いるはずないから、何を書いても許されると思います！",
+                T0001: ""
+            },
+            Protagonist: {
+                T0000: "",
+                T0001: ""
+            },
+            Sae: {
+                T0000: "Willkommen",
+                T0001: "Wenn das hier angezeigt wird, funktioniert auch das zweite Textsystem.",
+                T0002: "Trotzdem erzähle ich weiter um die Verzögerung zu testen."
+            }
+        };
+        let signalDelay2 = myfirstnovel.ƒS.Progress.defineSignal([() => myfirstnovel.ƒS.Progress.delay(2)]);
+        // let signalDelay1: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(1)]);
         await myfirstnovel.ƒS.Location.show(myfirstnovel.locations.pool);
         await myfirstnovel.ƒS.update(myfirstnovel.transition.clock.duration, myfirstnovel.transition.clock.alpha, myfirstnovel.transition.clock.edge);
+        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Narrator, text.Narrator.T0000, false);
+        myfirstnovel.ƒS.Speech.clear();
         await myfirstnovel.ƒS.Character.show(myfirstnovel.characters.Sae, myfirstnovel.characters.Sae.pose.normal, myfirstnovel.ƒS.positions.bottomleft);
         await myfirstnovel.ƒS.update(1);
-        //  await ƒS.Speech.tell(characters.Risa, text.Risa.T0000);
-        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Sae, "MC LP ist der geilste!");
+        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Sae, text.Sae.T0000);
+        // await ƒS.Speech.tell(characters.Sae, "");
         await myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Sae);
         await myfirstnovel.ƒS.Character.show(myfirstnovel.characters.Sae, myfirstnovel.characters.Sae.pose.smile, myfirstnovel.ƒS.positions.bottomleft);
         await myfirstnovel.ƒS.update(1);
-        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Sae, "Ich liebe ihn so sehr. <3");
+        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Sae, text.Sae.T0001);
+        // await ƒS.Speech.tell(characters.Sae, "");
+        await signalDelay2();
+        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Sae, text.Sae.T0002);
         await myfirstnovel.ƒS.update(1);
         await myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Sae);
-        await myfirstnovel.ƒS.update(myfirstnovel.transition.clock.duration, myfirstnovel.transition.clock.alpha, myfirstnovel.transition.clock.edge);
+        myfirstnovel.ƒS.Speech.clear();
+        await myfirstnovel.ƒS.update(1);
     }
     myfirstnovel.Pool = Pool;
 })(myfirstnovel || (myfirstnovel = {}));
@@ -136,7 +140,7 @@ var myfirstnovel;
     myfirstnovel.transition = {
         clock: {
             duration: 1,
-            alpha: "",
+            alpha: "Images/Transitions/circlewipe-cw.jpg",
             edge: 1
         }
     };
@@ -166,9 +170,6 @@ var myfirstnovel;
         Narrator: {
             name: ""
         },
-        Protagonist: {
-            name: "James"
-        },
         Risa: {
             name: "リサ",
             origin: myfirstnovel.ƒS.ORIGIN.BOTTOMLEFT,
@@ -186,6 +187,16 @@ var myfirstnovel;
                 smile: "Images/Characters/ch_sae_smile.png",
                 angry: ""
             }
+        }
+    };
+    // Variablen die für den Spielverlauf gespeichert werden sollen
+    myfirstnovel.dataForProgress = {
+        Protagonist: {
+            name: "James"
+        },
+        Points: {
+            Risa: 0,
+            Sae: 0
         }
     };
     document.addEventListener("keydown", hndKeypress);
@@ -209,6 +220,7 @@ var myfirstnovel;
             { scene: myfirstnovel.Hallway, name: "Hallway" },
             { scene: myfirstnovel.Pool, name: "Pool" }
         ];
+        myfirstnovel.ƒS.Progress.setData(myfirstnovel.dataForProgress);
         // start the sequence
         myfirstnovel.ƒS.Progress.go(scenes);
     }

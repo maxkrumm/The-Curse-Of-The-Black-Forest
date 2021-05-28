@@ -8,6 +8,9 @@ declare namespace myfirstnovel {
     function Pool(): ƒS.SceneReturn;
 }
 declare namespace myfirstnovel {
+    function bad(): ƒS.SceneReturn;
+}
+declare namespace myfirstnovel {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let transition: {

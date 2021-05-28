@@ -50,6 +50,7 @@ namespace myfirstnovel {
         ƒS.Character.hide(characters.Risa);
         ƒS.Speech.clear();
         await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
+        return "good_01"
         break;
       case firstDialogueElementAnswers.iSayYes:
         dataForProgress.Points.Risa += 50;
@@ -68,6 +69,7 @@ namespace myfirstnovel {
         await ƒS.Character.hide(characters.Risa);
         ƒS.Speech.clear();
         await ƒS.update(1);
+        return "bad_01";
         break;
     };
 

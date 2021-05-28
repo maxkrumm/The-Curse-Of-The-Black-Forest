@@ -103,7 +103,8 @@ namespace myfirstnovel {
     let scenes: ƒS.Scenes = [
       { scene: Entrance, name: "Entrance" },
       { scene: Hallway, name: "Hallway" },
-      { scene: Pool, name: "Pool" }
+      { scene: Pool, name: "Pool", id: "good_01", next: "Entrance"},
+      { scene: bad, name: "bad", id: "bad_01", next: "Hallway"},
     ];
 
     ƒS.Progress.setData(dataForProgress);

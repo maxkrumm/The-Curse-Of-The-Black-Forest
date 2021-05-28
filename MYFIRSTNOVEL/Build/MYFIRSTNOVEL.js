@@ -64,6 +64,7 @@ var myfirstnovel;
                 myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Risa);
                 myfirstnovel.ƒS.Speech.clear();
                 await myfirstnovel.ƒS.update(myfirstnovel.transition.clock.duration, myfirstnovel.transition.clock.alpha, myfirstnovel.transition.clock.edge);
+                return "good_01";
                 break;
             case firstDialogueElementAnswers.iSayYes:
                 myfirstnovel.dataForProgress.Points.Risa += 50;
@@ -82,6 +83,7 @@ var myfirstnovel;
                 await myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Risa);
                 myfirstnovel.ƒS.Speech.clear();
                 await myfirstnovel.ƒS.update(1);
+                return "bad_01";
                 break;
         }
         ;
@@ -130,6 +132,25 @@ var myfirstnovel;
         await myfirstnovel.ƒS.update(1);
     }
     myfirstnovel.Pool = Pool;
+})(myfirstnovel || (myfirstnovel = {}));
+var myfirstnovel;
+(function (myfirstnovel) {
+    async function bad() {
+        console.log("bad");
+        myfirstnovel.ƒS.Speech.setTickerDelays(30, 2);
+        await myfirstnovel.ƒS.Location.show(myfirstnovel.locations.entrance);
+        //   ƒS.Sound.fade(sound.backgroundTheme, 0.2, 0.1, true);
+        await myfirstnovel.ƒS.update(1);
+        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Narrator, "Today is your first day at your new job as a Swim Teacher at Ryukoku University!");
+        // Um Text direkt anzuzeigen  ƒS.Speech.set(characters.Narrator, "Today is your first day at your new job as a Swim Teacher at Ryukoku University!");
+        //Name Field
+        myfirstnovel.dataForProgress.Protagonist.name = await myfirstnovel.ƒS.Speech.getInput();
+        console.log(myfirstnovel.dataForProgress.Protagonist.name);
+        await myfirstnovel.ƒS.update(1);
+        myfirstnovel.ƒS.Speech.clear();
+        // Musik ausblenden ƒS.Sound.fade(sound.backgroundTheme, 0, 1);
+    }
+    myfirstnovel.bad = bad;
 })(myfirstnovel || (myfirstnovel = {}));
 var myfirstnovel;
 (function (myfirstnovel) {
@@ -218,7 +239,8 @@ var myfirstnovel;
         let scenes = [
             { scene: myfirstnovel.Entrance, name: "Entrance" },
             { scene: myfirstnovel.Hallway, name: "Hallway" },
-            { scene: myfirstnovel.Pool, name: "Pool" }
+            { scene: myfirstnovel.Pool, name: "Pool", id: "good_01", next: "Entrance" },
+            { scene: myfirstnovel.bad, name: "bad", id: "bad_01", next: "Hallway" },
         ];
         myfirstnovel.ƒS.Progress.setData(myfirstnovel.dataForProgress);
         // start the sequence

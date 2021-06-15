@@ -20,8 +20,8 @@ var myfirstnovel;
 })(myfirstnovel || (myfirstnovel = {}));
 var myfirstnovel;
 (function (myfirstnovel) {
-    async function Hallway() {
-        console.log("Hallway");
+    async function Arrival03() {
+        console.log("Arrival03");
         /*  let text = {
             Narrator: {
               T0000: "",
@@ -36,16 +36,22 @@ var myfirstnovel;
               T0001: ""
             }
           };    */
-        await myfirstnovel.ƒS.Location.show(myfirstnovel.locations.hallway);
+        let animation = {
+            start: { translation: myfirstnovel.ƒS.positions.bottomright /*, rotation: 360, scaling: new ƒS.Position(1, 1), color: ƒS.Color.CSS("blue, 0") */ },
+            end: { translation: myfirstnovel.ƒS.positions.bottomleft /*, rotation: 360, scaling: new ƒS.Position(1, 1), color: ƒS.Color.CSS("red") */ },
+            duration: 2,
+            playmode: myfirstnovel.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+        await myfirstnovel.ƒS.Location.show(myfirstnovel.locations.arrival03);
         await myfirstnovel.ƒS.update(myfirstnovel.transition.clock.duration, myfirstnovel.transition.clock.alpha, myfirstnovel.transition.clock.edge);
-        await myfirstnovel.ƒS.Character.show(myfirstnovel.characters.Risa, myfirstnovel.characters.Risa.pose.normal, myfirstnovel.ƒS.positions.bottomleft);
+        await myfirstnovel.ƒS.Character.animate(myfirstnovel.characters.warden, myfirstnovel.characters.warden.pose.normal, animation);
         await myfirstnovel.ƒS.update(1);
         //  await ƒS.Speech.tell(characters.Risa, text.Risa.T0000);
-        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Risa, "初めまして！水泳のチームのキャプテン、リサと申します！ようやく直接会えてとても嬉しいです！");
-        await myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Risa);
-        await myfirstnovel.ƒS.Character.show(myfirstnovel.characters.Risa, myfirstnovel.characters.Risa.pose.smile, myfirstnovel.ƒS.positions.bottomleft);
+        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.warden, "初めまして！水泳のチームのキャプテン、リサと申します！ようやく直接会えてとても嬉しいです！");
+        await myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.warden);
+        await myfirstnovel.ƒS.Character.show(myfirstnovel.characters.warden, myfirstnovel.characters.warden.pose.smile, myfirstnovel.ƒS.positions.bottomleft);
         await myfirstnovel.ƒS.update(1);
-        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Risa, "今日午後に最初のトレーニングもあるんですが、何か手伝うことがありませんか？", false);
+        await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.warden, "今日午後に最初のトレーニングもあるんですが、何か手伝うことがありませんか？", false);
         let firstDialogueElementAnswers = {
             iSayOk: "大丈夫です。",
             iSayYes: "はい！はい！はい！はい！",
@@ -55,32 +61,32 @@ var myfirstnovel;
         switch (firstDialogueElement) {
             case firstDialogueElementAnswers.iSayOk:
                 //continue writing on this path here
-                myfirstnovel.dataForProgress.Points.Risa += 10;
+                myfirstnovel.dataForProgress.Points.warden += 10;
                 myfirstnovel.dataForProgress.Points.Sae += 10;
-                console.log(myfirstnovel.dataForProgress.Points.Risa);
+                console.log(myfirstnovel.dataForProgress.Points.warden);
                 console.log(myfirstnovel.dataForProgress.Points.Sae);
-                await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Risa, "分かりました。よろしくお願いします！");
+                await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.warden, "分かりました。よろしくお願いします！");
                 await myfirstnovel.ƒS.update(1);
-                myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Risa);
+                myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.warden);
                 myfirstnovel.ƒS.Speech.clear();
                 await myfirstnovel.ƒS.update(myfirstnovel.transition.clock.duration, myfirstnovel.transition.clock.alpha, myfirstnovel.transition.clock.edge);
                 return "good_01";
                 break;
             case firstDialogueElementAnswers.iSayYes:
-                myfirstnovel.dataForProgress.Points.Risa += 50;
-                console.log(myfirstnovel.dataForProgress.Points.Risa);
-                await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Risa, "もちろんです！絶対ほかのメンバーにも伝えておきます！。よろしくお願いします！");
+                myfirstnovel.dataForProgress.Points.warden += 50;
+                console.log(myfirstnovel.dataForProgress.Points.warden);
+                await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.warden, "もちろんです！絶対ほかのメンバーにも伝えておきます！。よろしくお願いします！");
                 await myfirstnovel.ƒS.update(1);
-                myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Risa);
+                myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.warden);
                 myfirstnovel.ƒS.Speech.clear();
                 await myfirstnovel.ƒS.update(myfirstnovel.transition.clock.duration, myfirstnovel.transition.clock.alpha, myfirstnovel.transition.clock.edge);
                 break;
             case firstDialogueElementAnswers.iSayNo:
-                await myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Risa);
-                await myfirstnovel.ƒS.Character.show(myfirstnovel.characters.Risa, myfirstnovel.characters.Risa.pose.angry, myfirstnovel.ƒS.positions.bottomleft);
+                await myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.warden);
+                await myfirstnovel.ƒS.Character.show(myfirstnovel.characters.warden, myfirstnovel.characters.warden.pose.angry, myfirstnovel.ƒS.positions.bottomleft);
                 await myfirstnovel.ƒS.update(1);
-                await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.Risa, "言い方ひどいですよ！もういいです。");
-                await myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.Risa);
+                await myfirstnovel.ƒS.Speech.tell(myfirstnovel.characters.warden, "言い方ひどいですよ！もういいです。");
+                await myfirstnovel.ƒS.Character.hide(myfirstnovel.characters.warden);
                 myfirstnovel.ƒS.Speech.clear();
                 await myfirstnovel.ƒS.update(1);
                 return "bad_01";
@@ -88,7 +94,7 @@ var myfirstnovel;
         }
         ;
     }
-    myfirstnovel.Hallway = Hallway;
+    myfirstnovel.Arrival03 = Arrival03;
 })(myfirstnovel || (myfirstnovel = {}));
 var myfirstnovel;
 (function (myfirstnovel) {
@@ -154,6 +160,20 @@ var myfirstnovel;
 })(myfirstnovel || (myfirstnovel = {}));
 var myfirstnovel;
 (function (myfirstnovel) {
+    async function Animation() {
+        console.log("Animation");
+        /*   let animation: ƒS.AnimationDefinition = {
+               start: {translation: ƒS.positions.bottomleft, rotation: -20, scaling: new ƒS.Position(0.5, 1.5), color: ƒS.Color.CSS("blue, 0")},
+               end: {translation: ƒS.positions.bottomright, rotation: 20, scaling: new ƒS.Position(1.5, 0.5), color: ƒS.Color.CSS("red")},
+               duration: 1,
+               playmode: ƒS.ANIMATION_PLAYMODE.REVERSELOOP
+           }
+   */
+    }
+    myfirstnovel.Animation = Animation;
+})(myfirstnovel || (myfirstnovel = {}));
+var myfirstnovel;
+(function (myfirstnovel) {
     myfirstnovel.ƒ = FudgeCore;
     myfirstnovel.ƒS = FudgeStory;
     console.log("Loaded!");
@@ -177,9 +197,9 @@ var myfirstnovel;
             name: "Entrance",
             background: "Images/Backgrounds/bg_entrance.jpg"
         },
-        hallway: {
-            name: "Hallway",
-            background: "Images/Backgrounds/bg_hallway.jpg"
+        arrival03: {
+            name: "Arrival03",
+            background: "Images/Backgrounds/bg_arrival03.jpg"
         },
         pool: {
             name: "Pool",
@@ -191,13 +211,13 @@ var myfirstnovel;
         Narrator: {
             name: ""
         },
-        Risa: {
-            name: "リサ",
+        warden: {
+            name: "Warden",
             origin: myfirstnovel.ƒS.ORIGIN.BOTTOMLEFT,
             pose: {
-                normal: "Images/Characters/ch_risa_normal.png",
-                smile: "Images/Characters/ch_risa_smile.png",
-                angry: "Images/Characters/ch_risa_angry.png"
+                normal: "Images/Characters/ch_warden.png",
+                smile: "Images/Characters/ch_warden.png",
+                angry: "Images/Characters/ch_warden.png"
             }
         },
         Sae: {
@@ -216,7 +236,7 @@ var myfirstnovel;
             name: "James"
         },
         Points: {
-            Risa: 0,
+            warden: 0,
             Sae: 0
         }
     };
@@ -238,9 +258,9 @@ var myfirstnovel;
     function start(_event) {
         let scenes = [
             { scene: myfirstnovel.Entrance, name: "Entrance" },
-            { scene: myfirstnovel.Hallway, name: "Hallway" },
+            { scene: myfirstnovel.Arrival03, name: "Arrival03" },
             { scene: myfirstnovel.Pool, name: "Pool", id: "good_01", next: "Entrance" },
-            { scene: myfirstnovel.bad, name: "bad", id: "bad_01", next: "Hallway" },
+            { scene: myfirstnovel.bad, name: "bad", id: "bad_01", next: "Arrival03" },
         ];
         myfirstnovel.ƒS.Progress.setData(myfirstnovel.dataForProgress);
         // start the sequence

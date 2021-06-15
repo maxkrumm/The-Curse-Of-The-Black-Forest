@@ -27,9 +27,9 @@ namespace myfirstnovel {
       name: "Entrance",
       background: "Images/Backgrounds/bg_entrance.jpg"
     },
-    hallway: {
-      name: "Hallway",
-      background: "Images/Backgrounds/bg_hallway.jpg"
+    arrival03: {
+      name: "Arrival03",
+      background: "Images/Backgrounds/bg_arrival03.jpg"
     },
     pool: {
       name: "Pool",
@@ -42,13 +42,13 @@ namespace myfirstnovel {
     Narrator: {
       name: ""
     },
-    Risa: {
-      name: "リサ",
+    warden: {
+      name: "Warden",
       origin: ƒS.ORIGIN.BOTTOMLEFT,
       pose: {
-        normal: "Images/Characters/ch_risa_normal.png",
-        smile: "Images/Characters/ch_risa_smile.png",
-        angry: "Images/Characters/ch_risa_angry.png"
+        normal: "Images/Characters/ch_warden.png",
+        smile: "Images/Characters/ch_warden.png",
+        angry: "Images/Characters/ch_warden.png"
       }
     },
     Sae: {
@@ -71,9 +71,12 @@ namespace myfirstnovel {
       name: "James"
     },
     Points: {
-      Risa: 0,
+      warden: 0,
       Sae: 0
-    }
+    },
+        state:{
+        a: ""
+      }
   }
 
 
@@ -102,9 +105,9 @@ namespace myfirstnovel {
   function start(_event: Event): void {
     let scenes: ƒS.Scenes = [
       { scene: Entrance, name: "Entrance" },
-      { scene: Hallway, name: "Hallway" },
+      { scene: Arrival03, name: "Arrival03" },
       { scene: Pool, name: "Pool", id: "good_01", next: "Entrance"},
-      { scene: bad, name: "bad", id: "bad_01", next: "Hallway"},
+      { scene: bad, name: "bad", id: "bad_01", next: "Arrival03"},
     ];
 
     ƒS.Progress.setData(dataForProgress);

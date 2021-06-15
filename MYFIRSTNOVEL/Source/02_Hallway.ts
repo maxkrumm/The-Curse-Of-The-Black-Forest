@@ -1,6 +1,6 @@
 namespace myfirstnovel {
-  export async function Hallway(): ƒS.SceneReturn {
-    console.log("Hallway");
+  export async function Arrival03(): ƒS.SceneReturn {
+    console.log("Arrival03");
 
     /*  let text = {
         Narrator: {
@@ -18,17 +18,25 @@ namespace myfirstnovel {
       };    */
 
 
+   let animation: ƒS.AnimationDefinition = {
+      start: { translation: ƒS.positions.bottomright /*, rotation: 360, scaling: new ƒS.Position(1, 1), color: ƒS.Color.CSS("blue, 0") */},
+      end: { translation: ƒS.positions.bottomleft /*, rotation: 360, scaling: new ƒS.Position(1, 1), color: ƒS.Color.CSS("red") */},
+      duration: 2,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    }
 
-    await ƒS.Location.show(locations.hallway);
+
+
+    await ƒS.Location.show(locations.arrival03);
     await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge)
-    await ƒS.Character.show(characters.Risa, characters.Risa.pose.normal, ƒS.positions.bottomleft);
+    await ƒS.Character.animate(characters.warden, characters.warden.pose.normal, animation);
     await ƒS.update(1);
     //  await ƒS.Speech.tell(characters.Risa, text.Risa.T0000);
-    await ƒS.Speech.tell(characters.Risa, "初めまして！水泳のチームのキャプテン、リサと申します！ようやく直接会えてとても嬉しいです！");
-    await ƒS.Character.hide(characters.Risa);
-    await ƒS.Character.show(characters.Risa, characters.Risa.pose.smile, ƒS.positions.bottomleft);
+    await ƒS.Speech.tell(characters.warden, "初めまして！水泳のチームのキャプテン、リサと申します！ようやく直接会えてとても嬉しいです！");
+    await ƒS.Character.hide(characters.warden);
+    await ƒS.Character.show(characters.warden, characters.warden.pose.smile, ƒS.positions.bottomleft);
     await ƒS.update(1);
-    await ƒS.Speech.tell(characters.Risa, "今日午後に最初のトレーニングもあるんですが、何か手伝うことがありませんか？", false);
+    await ƒS.Speech.tell(characters.warden, "今日午後に最初のトレーニングもあるんですが、何か手伝うことがありませんか？", false);
 
     let firstDialogueElementAnswers = {
       iSayOk: "大丈夫です。",
@@ -41,32 +49,32 @@ namespace myfirstnovel {
     switch (firstDialogueElement) {
       case firstDialogueElementAnswers.iSayOk:
         //continue writing on this path here
-        dataForProgress.Points.Risa += 10;
+        dataForProgress.Points.warden += 10;
         dataForProgress.Points.Sae += 10;
-        console.log(dataForProgress.Points.Risa);
+        console.log(dataForProgress.Points.warden);
         console.log(dataForProgress.Points.Sae);
-        await ƒS.Speech.tell(characters.Risa, "分かりました。よろしくお願いします！")
+        await ƒS.Speech.tell(characters.warden, "分かりました。よろしくお願いします！")
         await ƒS.update(1);
-        ƒS.Character.hide(characters.Risa);
+        ƒS.Character.hide(characters.warden);
         ƒS.Speech.clear();
         await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge);
         return "good_01"
         break;
       case firstDialogueElementAnswers.iSayYes:
-        dataForProgress.Points.Risa += 50;
-        console.log(dataForProgress.Points.Risa);
-        await ƒS.Speech.tell(characters.Risa, "もちろんです！絶対ほかのメンバーにも伝えておきます！。よろしくお願いします！")
+        dataForProgress.Points.warden += 50;
+        console.log(dataForProgress.Points.warden);
+        await ƒS.Speech.tell(characters.warden, "もちろんです！絶対ほかのメンバーにも伝えておきます！。よろしくお願いします！")
         await ƒS.update(1);
-        ƒS.Character.hide(characters.Risa);
+        ƒS.Character.hide(characters.warden);
         ƒS.Speech.clear();
         await ƒS.update(transition.clock.duration, transition.clock.alpha, transition.clock.edge)
         break;
       case firstDialogueElementAnswers.iSayNo:
-        await ƒS.Character.hide(characters.Risa);
-        await ƒS.Character.show(characters.Risa, characters.Risa.pose.angry, ƒS.positions.bottomleft);
+        await ƒS.Character.hide(characters.warden);
+        await ƒS.Character.show(characters.warden, characters.warden.pose.angry, ƒS.positions.bottomleft);
         await ƒS.update(1);
-        await ƒS.Speech.tell(characters.Risa, "言い方ひどいですよ！もういいです。");
-        await ƒS.Character.hide(characters.Risa);
+        await ƒS.Speech.tell(characters.warden, "言い方ひどいですよ！もういいです。");
+        await ƒS.Character.hide(characters.warden);
         ƒS.Speech.clear();
         await ƒS.update(1);
         return "bad_01";

@@ -2,13 +2,16 @@ declare namespace myfirstnovel {
     function Entrance(): ƒS.SceneReturn;
 }
 declare namespace myfirstnovel {
-    function Hallway(): ƒS.SceneReturn;
+    function Arrival03(): ƒS.SceneReturn;
 }
 declare namespace myfirstnovel {
     function Pool(): ƒS.SceneReturn;
 }
 declare namespace myfirstnovel {
     function bad(): ƒS.SceneReturn;
+}
+declare namespace myfirstnovel {
+    function Animation(): ƒS.SceneReturn;
 }
 declare namespace myfirstnovel {
     export import ƒ = FudgeCore;
@@ -29,7 +32,7 @@ declare namespace myfirstnovel {
             name: string;
             background: string;
         };
-        hallway: {
+        arrival03: {
             name: string;
             background: string;
         };
@@ -42,7 +45,7 @@ declare namespace myfirstnovel {
         Narrator: {
             name: string;
         };
-        Risa: {
+        warden: {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
@@ -66,7 +69,7 @@ declare namespace myfirstnovel {
             name: string;
         };
         Points: {
-            Risa: number;
+            warden: number;
             Sae: number;
         };
     };

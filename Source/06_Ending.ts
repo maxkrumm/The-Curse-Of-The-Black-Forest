@@ -7,10 +7,9 @@ namespace blackforest {
       ƒS.Speech.setTickerDelays(30, 2);
   
       await ƒS.Location.show(locations.black);
-      
+      await ƒS.update(1);
       var link = document.getElementById('speech');   
       link.style.visibility = 'hidden';
-  
       await ƒS.update(1);
   
   

@@ -59,6 +59,10 @@ declare namespace blackforest {
             name: string;
             background: string;
         };
+        ending: {
+            name: string;
+            background: string;
+        };
     };
     let overlays: {
         monk: {

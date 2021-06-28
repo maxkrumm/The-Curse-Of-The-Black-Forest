@@ -14,6 +14,9 @@ declare namespace blackforest {
     function Arrival05(): ƒS.SceneReturn;
 }
 declare namespace blackforest {
+    function Ending(): ƒS.SceneReturn;
+}
+declare namespace blackforest {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let transition: {
@@ -28,6 +31,10 @@ declare namespace blackforest {
         click: string;
     };
     let locations: {
+        black: {
+            name: string;
+            background: string;
+        };
         arrival01: {
             name: string;
             background: string;

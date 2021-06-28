@@ -23,6 +23,10 @@ namespace blackforest {
   };
 
   export let locations = {
+    black: {
+      name: "Black",
+      background: "Images/black.jpg"
+    },
     arrival01: {
       name: "Arrival01",
       background: "Images/Backgrounds/bg_arrival01.jpg"
@@ -174,12 +178,12 @@ function start(_event: Event): void {
 
 
   let scenes: ƒS.Scenes = [
-    { scene: Arrival01, name: "Arrival01" },
-    { scene: Arrival02, name: "Arrival02" },
-    { scene: Arrival03, name: "Arrival03" },
-    { scene: Arrival04, name: "Arrival04" },
+    // { scene: Arrival01, name: "Arrival01" },
+    // { scene: Arrival02, name: "Arrival02" },
+    // { scene: Arrival03, name: "Arrival03" },
+    // { scene: Arrival04, name: "Arrival04" },
     { scene: Arrival05, name: "Arrival05" },
-    //    { scene: Arrival06, name: "Arrival06"},
+    { scene: Ending, name: "Ending"},
   ];
 
   ƒS.Progress.setData(dataForProgress);

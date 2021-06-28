@@ -18,7 +18,7 @@ namespace blackforest {
       ƒS.Speech.clear();
       await ƒS.Character.show(characters.monk, characters.monk.pose.normal, ƒS.positions.bottomleft);
       await ƒS.update(1);
-      await ƒS.Speech.tell(characters.monk, "Hi my name is Jeff. I am wandering through this forest, always looking for big titties.");
+      await ƒS.Speech.tell(characters.monk, "Hi my name is Jeff. I am wandering through this forest, always looking for adventure.");
       await ƒS.Speech.tell(characters.monk, "introduces himself and talks a bit about the situation in the forest without giving too much away");
       ƒS.Speech.clear();
       await ƒS.Character.hide(characters.monk);
@@ -41,10 +41,8 @@ namespace blackforest {
       await ƒS.Speech.tell(characters.monk, "Hi my name is Jeff. I am wandering through this forest, always looking for big titties.");
       await ƒS.Speech.tell(characters.monk, "They are friendly folks, you will like them! The quarry is not far from here, across this bridge and follow the path!");
       await ƒS.Speech.tell(characters.monk, "Farewell and best of luck on your Journey!");
-    
-      await ƒS.Character.hide(overlays.eyes);
+  
       ƒS.Speech.clear();
-      await ƒS.update(1);
   
   
   

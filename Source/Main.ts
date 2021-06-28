@@ -80,14 +80,14 @@ namespace blackforest {
       name: ""
     },
     warden: {
-      name: "Warden",
+      name: "Warden:",
       origin: ƒS.ORIGIN.BOTTOMLEFT,
       pose: {
         normal: "Images/Characters/ch_warden.png",
       }
     },
     monk: {
-      name: "Monk",
+      name: "Yareem:",
       origin: ƒS.ORIGIN.BOTTOMLEFT,
       pose: {
         normal: "Images/Characters/ch_monk_normal.png",

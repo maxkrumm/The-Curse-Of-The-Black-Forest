@@ -7,7 +7,8 @@ var blackforest;
         await blackforest.ƒS.Location.show(blackforest.locations.arrival01);
         //   ƒS.Sound.fade(sound.backgroundTheme, 0.2, 0.1, true);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You've arrived at the forest that you have been called to. The atmosphere is eerie, no birds are singing...");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Walking, walking, walking... The last couple of days have been quite a journey. Although nothing special has really happened on the way, you're glad you have finally arrived here at the black forest.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Black forest.. what a scary name. Something is really off about this place, an eeriness that makes you feel uncomfortable. You realize there are no birds singing at all, what is going on here?");
         // Um Text direkt anzuzeigen  ƒS.Speech.set(characters.Narrator, "Today is your first day at your new job as a Swim Teacher at Ryukoku University!");
         blackforest.ƒS.Speech.clear();
         // Musik ausblenden ƒS.Sound.fade(sound.backgroundTheme, 0, 1);
@@ -22,7 +23,13 @@ var blackforest;
         await blackforest.ƒS.Location.show(blackforest.locations.arrival02);
         //   ƒS.Sound.fade(sound.backgroundTheme, 0.2, 0.1, true);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "The sun is shining through the trees but it is still cold...");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "The sun is shining through the trees, casting shadows on the ground that is still coated in dew.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Now that you think about it, the guy who told you to come here back in Grayrock didn't look like the most trustworthy person in the world, a Kwelk after all.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Not a lot of information that he gave you either, just told you that they really needed a Wanderer to help them. You would not regret it, he said...");
+        blackforest.ƒS.Speech.clear();
+        await blackforest.ƒS.Location.show(blackforest.locations.black);
+        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You're following a narrow path along some old firs. Suddenly a silhouette steps out from behind a thick tree and stands in your way..");
         blackforest.ƒS.Speech.clear();
         // Musik ausblenden ƒS.Sound.fade(sound.backgroundTheme, 0, 1);
     }
@@ -34,25 +41,24 @@ var blackforest;
         console.log("Arrival03");
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
         await blackforest.ƒS.Location.show(blackforest.locations.arrival03);
-        blackforest.ƒS.Sound.fade(blackforest.sound.mainTheme, 0.2, 0.1, true);
-        await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After some time walking a silhouette approaches you..");
-        await blackforest.ƒS.update(1);
-        blackforest.ƒS.Speech.clear();
+        //ƒS.Sound.fade(sound.mainTheme, 0.2, 0.1, true);
         await blackforest.ƒS.Character.show(blackforest.characters.warden, blackforest.characters.warden.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
         // await ƒS.Speech.tell (characters.warden, "");
-        await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Greetings stranger, what is your name?");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Greetings stranger, I am the Warden of the Eastern Gate, what is your name?");
+        blackforest.ƒS.Speech.clear();
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Enter your name: ");
         blackforest.dataForProgress.Protagonist.name = await blackforest.ƒS.Speech.getInput();
         console.log(blackforest.dataForProgress.Protagonist.name);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Ah, nice to meet you " + blackforest.dataForProgress.Protagonist.name + ", I know why you are here. Please go see the people at the quarry, Story Character 1 is already awaiting your arrival, he will tell you what to do!");
-        await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Just follow the river and you can't miss the quarry.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Ah, nice to finally meet you " + blackforest.dataForProgress.Protagonist.name + ", I know why you are here, the forest has been awaiting your arrival. I assume you might have a lot of questions, you will have to wait a bit longer, I am not the one who can answer them.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Please go see the people at the quarry and talk to Quill, the Head of the Beahorns. He is already waiting there for you, he will tell you what to do next!");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Thank you for coming, we really need your help here. Now go on and take care, just follow the river and you can't miss the quarry!");
         await blackforest.ƒS.update(1);
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.hide(blackforest.characters.warden);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "It's still early in the morning...");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "It is still early in the morning as you make your way towards the sound of water rushing in the distance..");
         blackforest.ƒS.Speech.clear();
         // Musik ausblenden ƒS.Sound.fade(sound.backgroundTheme, 0, 1);
     }
@@ -66,7 +72,7 @@ var blackforest;
         await blackforest.ƒS.Location.show(blackforest.locations.arrival04);
         //   ƒS.Sound.fade(sound.backgroundTheme, 0.2, 0.1, true);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Reflect about what MC knows about why he was called to this forest. Maybe it has something to do with the silence?");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "In this light the forest does not look scary at all anymore, if only it wasn't for the silence, only the wind blowing through the trees and the river rushing in the background.. Other than that, no sign of life. This has to be the reason they called you here..");
         // Um Text direkt anzuzeigen  ƒS.Speech.set(characters.Narrator, "Today is your first day at your new job as a Swim Teacher at Ryukoku University!");
         blackforest.ƒS.Speech.clear();
         // Musik ausblenden ƒS.Sound.fade(sound.backgroundTheme, 0, 1);
@@ -80,37 +86,36 @@ var blackforest;
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
         await blackforest.ƒS.Location.show(blackforest.locations.arrival05);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "This must be the river, the warden was speaking of.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After another couple of minutes you reach a stream that has carved its way through the thicket between the trunks. This must be the river the warden was talking about.");
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.show(blackforest.overlays.monk, blackforest.overlays.monk.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Someone is slowly coming towards you over the bridge.");
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "He looks a bit clumsy with his long robe, but manages to cross the river with surprising confidence. When he notices you he comes up to you and starts talking to you.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "To your left you see a narrow bridge and on it you see a creature holding a walking stick, trying to keep its balance. He looks a bit clumsy with his long robe, but manages to cross the river with surprising confidence. As soon as he notices you he comes up and starts talking.");
         await blackforest.ƒS.Character.hide(blackforest.overlays.monk);
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.show(blackforest.characters.monk, blackforest.characters.monk.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "Hi my name is Jeff. I am wandering through this forest, always looking for adventure.");
-        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "introduces himself and talks a bit about the situation in the forest without giving too much away");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "Hey, hey.. Uh, that was really close, I almost fell off that bridge. Good thing I have always got my stick with me, that thing saved my life quiet a few times!                 ... I have never seen you here before.. you look different, you're not from here. Hmm, you must be the Wanderer they called!");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "My name is Yareem, delighted to meet you. I live in this forest, wandering around, always looking for adventure. We do rarely see Wanderers walk our paths, so excuse me for talking a lot. The forest is in bad condition.. the birds.. what is a forest without their beautiful voices. But you're here to save us, finally!");
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.hide(blackforest.characters.monk);
         await blackforest.ƒS.Character.show(blackforest.characters.monk, blackforest.characters.monk.pose.pointing, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "Look over there!");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "Look there!");
         await blackforest.ƒS.Character.hide(blackforest.characters.monk);
         await blackforest.ƒS.Location.show(blackforest.locations.arrival055);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "The Quabbels live under the trees between the roots on the river banks. They are collecting resources and transport them to all the areas in the forest.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "These are Beahorns, water folks, they are really good at hiding if they don't want to be seen. Watch the dark spots!");
         await blackforest.ƒS.Character.show(blackforest.overlays.eyes, blackforest.overlays.eyes.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "JAJAJAJAJJAJAJAJAJAJAJAJA");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "They live between the roots of the trees along the river banks, collecting valuable resources and distributing them over the whole forest using boats. Without them, this place would not be the same... Really nice creatures, reliable and trustworthy, but not naive!");
+        blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.hide(blackforest.overlays.eyes);
         await blackforest.ƒS.Location.show(blackforest.locations.arrival05);
         await blackforest.ƒS.Character.show(blackforest.characters.monk, blackforest.characters.monk.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "Hi my name is Jeff. I am wandering through this forest, always looking for adventure.");
-        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "They are friendly folks, you will like them! The quarry is not far from here, across this bridge and follow the path!");
-        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "Farewell and best of luck on your Journey!");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "You're already on your way to the quarry I reckon, they will definitely be able to support you! It is not far from here, just cross the river and follow the path.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "Farewell and best of luck on your journey, friend!");
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.hide(blackforest.characters.monk);
         await blackforest.ƒS.update(1);
@@ -203,14 +208,14 @@ var blackforest;
             name: ""
         },
         warden: {
-            name: "Warden",
+            name: "Warden:",
             origin: blackforest.ƒS.ORIGIN.BOTTOMLEFT,
             pose: {
                 normal: "Images/Characters/ch_warden.png",
             }
         },
         monk: {
-            name: "Monk",
+            name: "Yareem:",
             origin: blackforest.ƒS.ORIGIN.BOTTOMLEFT,
             pose: {
                 normal: "Images/Characters/ch_monk_normal.png",

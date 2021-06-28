@@ -183,10 +183,10 @@ function start(_event: Event): void {
 
   let scenes: ƒS.Scenes = [
     { scene: Arrival01, name: "Arrival01" },
-    // { scene: Arrival02, name: "Arrival02" },
-    // { scene: Arrival03, name: "Arrival03" },
-    // { scene: Arrival04, name: "Arrival04" },
-    // { scene: Arrival05, name: "Arrival05" },
+    { scene: Arrival02, name: "Arrival02" },
+    { scene: Arrival03, name: "Arrival03" },
+    { scene: Arrival04, name: "Arrival04" },
+    { scene: Arrival05, name: "Arrival05" },
     { scene: Ending, name: "Ending"},
   ];
 

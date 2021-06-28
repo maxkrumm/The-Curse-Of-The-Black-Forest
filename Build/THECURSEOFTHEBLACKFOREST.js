@@ -293,10 +293,10 @@ var blackforest;
         uff.setAttribute("id", "MenuID");*/
         let scenes = [
             { scene: blackforest.Arrival01, name: "Arrival01" },
-            // { scene: Arrival02, name: "Arrival02" },
-            // { scene: Arrival03, name: "Arrival03" },
-            // { scene: Arrival04, name: "Arrival04" },
-            // { scene: Arrival05, name: "Arrival05" },
+            { scene: blackforest.Arrival02, name: "Arrival02" },
+            { scene: blackforest.Arrival03, name: "Arrival03" },
+            { scene: blackforest.Arrival04, name: "Arrival04" },
+            { scene: blackforest.Arrival05, name: "Arrival05" },
             { scene: blackforest.Ending, name: "Ending" },
         ];
         blackforest.ƒS.Progress.setData(blackforest.dataForProgress);

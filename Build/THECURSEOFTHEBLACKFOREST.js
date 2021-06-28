@@ -111,9 +111,9 @@ var blackforest;
         await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "Hi my name is Jeff. I am wandering through this forest, always looking for adventure.");
         await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "They are friendly folks, you will like them! The quarry is not far from here, across this bridge and follow the path!");
         await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "Farewell and best of luck on your Journey!");
+        blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.hide(blackforest.characters.monk);
         await blackforest.ƒS.update(1);
-        blackforest.ƒS.Speech.clear();
     }
     blackforest.Arrival05 = Arrival05;
 })(blackforest || (blackforest = {}));
@@ -122,10 +122,7 @@ var blackforest;
     async function Ending() {
         console.log("Ending");
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
-        await blackforest.ƒS.Location.show(blackforest.locations.black);
-        await blackforest.ƒS.update(1);
-        var link = document.getElementById('speech');
-        link.style.visibility = 'hidden';
+        await blackforest.ƒS.Location.show(blackforest.locations.ending);
         await blackforest.ƒS.update(1);
     }
     blackforest.Ending = Ending;
@@ -296,10 +293,10 @@ var blackforest;
         uff.setAttribute("id", "MenuID");*/
         let scenes = [
             { scene: blackforest.Arrival01, name: "Arrival01" },
-            { scene: blackforest.Arrival02, name: "Arrival02" },
-            { scene: blackforest.Arrival03, name: "Arrival03" },
-            { scene: blackforest.Arrival04, name: "Arrival04" },
-            { scene: blackforest.Arrival05, name: "Arrival05" },
+            // { scene: Arrival02, name: "Arrival02" },
+            // { scene: Arrival03, name: "Arrival03" },
+            // { scene: Arrival04, name: "Arrival04" },
+            // { scene: Arrival05, name: "Arrival05" },
             { scene: blackforest.Ending, name: "Ending" },
         ];
         blackforest.ƒS.Progress.setData(blackforest.dataForProgress);

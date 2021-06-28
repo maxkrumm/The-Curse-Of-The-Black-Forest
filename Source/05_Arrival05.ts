@@ -41,10 +41,10 @@ namespace blackforest {
       await ƒS.Speech.tell(characters.monk, "Hi my name is Jeff. I am wandering through this forest, always looking for adventure.");
       await ƒS.Speech.tell(characters.monk, "They are friendly folks, you will like them! The quarry is not far from here, across this bridge and follow the path!");
       await ƒS.Speech.tell(characters.monk, "Farewell and best of luck on your Journey!");
-  
+      ƒS.Speech.clear();
       await ƒS.Character.hide(characters.monk);
       await ƒS.update(1);
-      ƒS.Speech.clear();
+
   
   
   

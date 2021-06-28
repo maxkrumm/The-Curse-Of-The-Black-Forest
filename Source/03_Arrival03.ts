@@ -14,12 +14,12 @@ namespace blackforest {
       ƒS.Speech.clear();
       await ƒS.Character.show (characters.warden, characters.warden.pose.normal, ƒS.positions.bottomleft);
       await ƒS.update(1);
-      await ƒS.Speech.tell (characters.warden, "");
+      // await ƒS.Speech.tell (characters.warden, "");
       await ƒS.Speech.tell (characters.warden, "Greetings stranger, what is your name?");
       dataForProgress.Protagonist.name = await ƒS.Speech.getInput();
       console.log(dataForProgress.Protagonist.name);
       await ƒS.update(1);
-      await ƒS.Speech.tell (characters.warden, "Ah, nice to meet you ..., I know why you are here. Please go see the people at the quarry, Story Character 1 is already awaiting your arrival, he will tell you what to do!");
+      await ƒS.Speech.tell (characters.warden, "Ah, nice to meet you "+ dataForProgress.Protagonist.name +", I know why you are here. Please go see the people at the quarry, Story Character 1 is already awaiting your arrival, he will tell you what to do!");
       await ƒS.Speech.tell (characters.warden, "Just follow the river and you can't miss the quarry.");
       await ƒS.update(1);
       ƒS.Speech.clear();

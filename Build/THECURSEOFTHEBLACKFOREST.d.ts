@@ -53,6 +53,22 @@ declare namespace blackforest {
             background: string;
         };
     };
+    let overlays: {
+        monk: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+            };
+        };
+        eyes: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+            };
+        };
+    };
     let characters: {
         Narrator: {
             name: string;
@@ -64,9 +80,15 @@ declare namespace blackforest {
                 normal: string;
             };
         };
+        monk: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+                pointing: string;
+            };
+        };
     };
-    function incrementSound(): void;
-    function decrementSound(): void;
     let dataForProgress: {
         Protagonist: {
             name: string;

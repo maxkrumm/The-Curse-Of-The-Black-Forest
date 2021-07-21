@@ -1,20 +1,17 @@
 declare namespace blackforest {
-    function Arrival01(): ƒS.SceneReturn;
+    function Arrival(): ƒS.SceneReturn;
 }
 declare namespace blackforest {
-    function Arrival02(): ƒS.SceneReturn;
+    function Quarry(): ƒS.SceneReturn;
 }
 declare namespace blackforest {
-    function Arrival03(): ƒS.SceneReturn;
+    function River(): ƒS.SceneReturn;
 }
 declare namespace blackforest {
-    function Arrival04(): ƒS.SceneReturn;
+    function Woods(): ƒS.SceneReturn;
 }
 declare namespace blackforest {
-    function Arrival05(): ƒS.SceneReturn;
-}
-declare namespace blackforest {
-    function Ending(): ƒS.SceneReturn;
+    function EndingGood(): ƒS.SceneReturn;
 }
 declare namespace blackforest {
     export import ƒ = FudgeCore;
@@ -55,11 +52,59 @@ declare namespace blackforest {
             name: string;
             background: string;
         };
-        arrival055: {
+        arrival06: {
             name: string;
             background: string;
         };
-        ending: {
+        arrival07: {
+            name: string;
+            background: string;
+        };
+        arrival08: {
+            name: string;
+            background: string;
+        };
+        arrival09: {
+            name: string;
+            background: string;
+        };
+        quarry01: {
+            name: string;
+            background: string;
+        };
+        quarry02: {
+            name: string;
+            background: string;
+        };
+        river01: {
+            name: string;
+            background: string;
+        };
+        river02: {
+            name: string;
+            background: string;
+        };
+        river03: {
+            name: string;
+            background: string;
+        };
+        woods01: {
+            name: string;
+            background: string;
+        };
+        woods02: {
+            name: string;
+            background: string;
+        };
+        woods03: {
+            name: string;
+            background: string;
+        };
+        woods04: {
+            name: string;
+            background: string;
+        };
+        endingGood: {
             name: string;
             background: string;
         };
@@ -97,6 +142,15 @@ declare namespace blackforest {
             pose: {
                 normal: string;
                 pointing: string;
+            };
+        };
+        quill: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+                laughing: string;
+                angry: string;
             };
         };
     };

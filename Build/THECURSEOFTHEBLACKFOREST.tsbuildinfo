@@ -2,11 +2,10 @@
   "bundle": {
     "commonSourceDirectory": "..",
     "sourceFiles": [
-      "../Source/01_Arrival01.ts",
-      "../Source/02_Arrival02.ts",
-      "../Source/03_Arrival03.ts",
-      "../Source/04_Arrival04.ts",
-      "../Source/05_Arrival05.ts",
+      "../Source/01_Arrival.ts",
+      "../Source/02_Quarry.ts",
+      "../Source/03-1_River.ts",
+      "../Source/04_Woods.ts",
       "../Source/06_Ending.ts",
       "../Source/Main.ts"
     ],
@@ -20,7 +19,7 @@
         },
         {
           "pos": 15,
-          "end": 16370,
+          "end": 28608,
           "kind": "text"
         }
       ],
@@ -48,7 +47,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 2556,
+          "end": 3810,
           "kind": "text"
         }
       ]

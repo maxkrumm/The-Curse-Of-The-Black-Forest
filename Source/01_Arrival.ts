@@ -37,7 +37,7 @@ namespace blackforest {
     dataForProgress.Protagonist.name = await ƒS.Speech.getInput();
     console.log(dataForProgress.Protagonist.name);
     await ƒS.update(1);
-    await ƒS.Speech.tell(characters.warden, "Ah, nice to finally meet you " + dataForProgress.Protagonist.name + ", I know why you are here, the forest has been awaiting your arrival. I assume you might have a lot of questions, you will have to wait a bit longer, I am not the one who can answer them.");
+    await ƒS.Speech.tell(characters.warden, "Ah, nice to finally meet you " + dataForProgress.Protagonist.name +", I know why you are here, the forest has been awaiting your arrival. I assume you might have a lot of questions, you will have to wait a bit longer, I am not the one who can answer them.");
     await ƒS.Speech.tell(characters.warden, "Please go see the people at the quarry and talk to Quill, the Head of the Beahorns. He is already waiting there for you, he will tell you what to do next!");
     await ƒS.Speech.tell(characters.warden, "Thank you for coming, we really need your help here. Now go on and take care, just follow the river and you can't miss the quarry!");
     await ƒS.update(1);

@@ -28,9 +28,13 @@ namespace blackforest {
         //Scene 3
         await ƒS.Location.show(locations.river03);
         await ƒS.update(1);
+        await ƒS.Character.show(characters.quill, characters.quill.pose.normal, ƒS.positions.bottomleft);
+        await ƒS.update(1);
+        await ƒS.Speech.tell(characters.quill, "Alright, this is as far as I can take you, you’ll have to walk the rest on your own. A short way down the path behind you you will find the entrance to the mystical part of the woods where the guardian of the forest resides.");
+        await ƒS.Character.hide(characters.quill);
         await ƒS.Character.show(characters.quill, characters.quill.pose.laughing, ƒS.positions.bottomleft);
         await ƒS.update(1);
-        await ƒS.Speech.tell(characters.quill, "Alright, this is as far as I can take you, you’ll have to walk the rest on your own. A short way down the path behind you you will find the entrance to the mystical part of the woods where the guardian of the forest resides. From there just walk without thinking, do not try to find what you’re looking for or you will never find it. If you free your mind your feet will find the way on their own.");
+        await ƒS.Speech.tell(characters.quill, "From there just walk without thinking, do not try to find what you’re looking for or you will never find it. If you free your mind your feet will find the way on their own.");
         await ƒS.Speech.tell(characters.Narrator, "With these words Quill waves you a last goodbye and gets back to the boat. You turn around and face towards the road ahead of you.");
         await ƒS.Character.hide(characters.quill);
         ƒS.Speech.clear();

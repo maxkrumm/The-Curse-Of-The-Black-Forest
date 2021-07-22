@@ -7,6 +7,7 @@ namespace blackforest {
     ƒS.Speech.setTickerDelays(30, 2);
 
     //Scene 1
+    ƒS.Sound.fade(sound.arrivalLoop, 0.2, 0.1, true);
     await ƒS.Location.show(locations.arrival01);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Narrator, "Walking, walking, walking... The last couple of days have been quite a journey. Although nothing special has really happened on the way, you're glad you have finally arrived here at the black forest.");
@@ -117,6 +118,7 @@ namespace blackforest {
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Narrator, "To your left you see a bridge across the river made of some wood planks. The Quarry can’t be far from here..");
     ƒS.Speech.clear();
+    
 
 
 

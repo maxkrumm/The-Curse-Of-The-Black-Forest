@@ -24,7 +24,8 @@ declare namespace blackforest {
         };
     };
     let sound: {
-        mainTheme: string;
+        arrivalLoop: string;
+        quarryLoop: string;
         click: string;
     };
     let locations: {
@@ -104,6 +105,10 @@ declare namespace blackforest {
             name: string;
             background: string;
         };
+        woods05: {
+            name: string;
+            background: string;
+        };
         endingGood: {
             name: string;
             background: string;
@@ -151,6 +156,13 @@ declare namespace blackforest {
                 normal: string;
                 laughing: string;
                 angry: string;
+            };
+        };
+        moora: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
             };
         };
     };

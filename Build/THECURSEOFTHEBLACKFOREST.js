@@ -5,6 +5,7 @@ var blackforest;
         console.log("Arrival");
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
         //Scene 1
+        blackforest.ƒS.Sound.fade(blackforest.sound.arrivalLoop, 0.2, 0.1, true);
         await blackforest.ƒS.Location.show(blackforest.locations.arrival01);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Walking, walking, walking... The last couple of days have been quite a journey. Although nothing special has really happened on the way, you're glad you have finally arrived here at the black forest.");
@@ -116,11 +117,13 @@ var blackforest;
         console.log("Quarry");
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
         //Blackscreen
+        blackforest.ƒS.Sound.fade(blackforest.sound.arrivalLoop, 0, 3);
         await blackforest.ƒS.Location.show(blackforest.locations.black);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "In the distance your hear the noise of pickaxes hitting on stone, this has to be it. You make your way around the next corner.");
         blackforest.ƒS.Speech.clear();
         //Scene 1
+        blackforest.ƒS.Sound.fade(blackforest.sound.quarryLoop, 0.4, 0.1, true);
         await blackforest.ƒS.Location.show(blackforest.locations.quarry01);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Finally! In front of you you see the quarry, Beahorns working on the walls, mining stones and carrrying them away. The place is very busy and looks a bit chaotic at first glance, but as you watch the proceedings you recognize a very efficient system.");
@@ -151,6 +154,8 @@ var blackforest;
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You follow Quill to the water and get with him into a small wooden boat.");
         blackforest.ƒS.Speech.clear();
+        blackforest.ƒS.Sound.fade(blackforest.sound.quarryLoop, 0, 3);
+        await blackforest.ƒS.update(1);
     }
     blackforest.Quarry = Quarry;
 })(blackforest || (blackforest = {}));
@@ -178,9 +183,13 @@ var blackforest;
         //Scene 3
         await blackforest.ƒS.Location.show(blackforest.locations.river03);
         await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.normal, blackforest.ƒS.positions.bottomleft);
+        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "Alright, this is as far as I can take you, you’ll have to walk the rest on your own. A short way down the path behind you you will find the entrance to the mystical part of the woods where the guardian of the forest resides.");
+        await blackforest.ƒS.Character.hide(blackforest.characters.quill);
         await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.laughing, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "Alright, this is as far as I can take you, you’ll have to walk the rest on your own. A short way down the path behind you you will find the entrance to the mystical part of the woods where the guardian of the forest resides. From there just walk without thinking, do not try to find what you’re looking for or you will never find it. If you free your mind your feet will find the way on their own.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "From there just walk without thinking, do not try to find what you’re looking for or you will never find it. If you free your mind your feet will find the way on their own.");
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "With these words Quill waves you a last goodbye and gets back to the boat. You turn around and face towards the road ahead of you.");
         await blackforest.ƒS.Character.hide(blackforest.characters.quill);
         blackforest.ƒS.Speech.clear();
@@ -212,21 +221,26 @@ var blackforest;
         //Blackscreen
         await blackforest.ƒS.Location.show(blackforest.locations.black);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You have lost track of how long you have been in this mesmerizing place. Suddenly you step out of the woods onto a glade between the trees, the sun is shining down and as your eyes get used to the brightness, in front of you, you see it..");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You have lost track of how long you have been in this mesmerizing place.");
         blackforest.ƒS.Speech.clear();
         //Scene 4
         await blackforest.ƒS.Location.show(blackforest.locations.woods04);
         await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Suddenly you step out of the woods onto a glade between the trees, the sun is shining down and as your eyes get used to the brightness, in front of you, you see it..");
+        blackforest.ƒS.Speech.clear();
+        //Scene 5
+        await blackforest.ƒS.Location.show(blackforest.locations.woods05);
+        await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "There he is lying, the guardian of the forest. You immediately know that it is him, the aura has gotten really strong. As you take another step forward you notice something in the corner of your eye. A creature appears in front of you and stops in your way.");
         blackforest.ƒS.Speech.clear();
-        await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.laughing, blackforest.ƒS.positions.bottomleft);
+        await blackforest.ƒS.Character.show(blackforest.characters.moora, blackforest.characters.moora.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
         //Good Ending
-        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "Hold there," + blackforest.dataForProgress.Protagonist.name + ". You cannot go any further from here. First I need to see the rune, show it to me, then I will tell you what will happen.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.moora, "Hold there," + blackforest.dataForProgress.Protagonist.name + ". You cannot go any further from here. First I need to see the rune, show it to me, then I will tell you what will happen.");
         //Show Rune
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "“Thank you. My name is Moora. I am here to speak for the guardian of this forest, for he does not speak our language. I believe you have heard about the condition he is currently in, for this is the reason you are here. Do you have what was given to you with you?”");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Thank you. My name is Moora. I am here to speak for the guardian of this forest, for he does not speak our language. I believe you have heard about the condition he is currently in, for this is the reason you are here. Do you have what was given to you with you?”");
         //Show Medicine
-        await blackforest.ƒS.Character.hide(blackforest.characters.quill);
+        await blackforest.ƒS.Character.hide(blackforest.characters.moora);
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.update(1);
     }
@@ -259,8 +273,9 @@ var blackforest;
     //define sound
     blackforest.sound = {
         //Musik
-        mainTheme: "Sound/Music/vn_maintheme_loop.wav",
-        //Sound
+        arrivalLoop: "Sound/Music/mus_arrival_loop.wav",
+        quarryLoop: "Sound/Music/mus_quarry_loop.wav",
+        //Sounds
         click: ""
     };
     blackforest.locations = {
@@ -340,9 +355,13 @@ var blackforest;
             name: "Woods04",
             background: "Images/Backgrounds/bg_woods04.jpg"
         },
+        woods05: {
+            name: "Woods05",
+            background: "Images/Backgrounds/bg_woods05.jpg"
+        },
         endingGood: {
             name: "EndingGood",
-            background: "Images/Backgrounds/bg_ending_good.jpg"
+            background: "Images/Ending.jpg"
         },
     };
     blackforest.overlays = {
@@ -388,6 +407,13 @@ var blackforest;
                 normal: "Images/Characters/ch_quill_normal.png",
                 laughing: "Images/Characters/ch_quill_laughing.png",
                 angry: "Images/Characters/ch_quill_angry.png",
+            }
+        },
+        moora: {
+            name: "Moora:",
+            origin: blackforest.ƒS.ORIGIN.BOTTOMLEFT,
+            pose: {
+                normal: "Images/Characters/ch_moora.png",
             }
         },
     };

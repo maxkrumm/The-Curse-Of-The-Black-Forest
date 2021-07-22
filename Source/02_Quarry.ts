@@ -7,12 +7,14 @@ namespace blackforest {
         ƒS.Speech.setTickerDelays(30, 2);
 
         //Blackscreen
+        ƒS.Sound.fade(sound.arrivalLoop, 0, 3);
         await ƒS.Location.show(locations.black);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.Narrator, "In the distance your hear the noise of pickaxes hitting on stone, this has to be it. You make your way around the next corner.");
         ƒS.Speech.clear();
 
         //Scene 1
+        ƒS.Sound.fade(sound.quarryLoop, 0.4, 0.1, true);
         await ƒS.Location.show(locations.quarry01);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.Narrator, "Finally! In front of you you see the quarry, Beahorns working on the walls, mining stones and carrrying them away. The place is very busy and looks a bit chaotic at first glance, but as you watch the proceedings you recognize a very efficient system.");
@@ -44,6 +46,8 @@ namespace blackforest {
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.Narrator, "You follow Quill to the water and get with him into a small wooden boat.");
         ƒS.Speech.clear();
+        ƒS.Sound.fade(sound.quarryLoop, 0, 3);
+        await ƒS.update(1);
 
         
 

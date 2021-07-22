@@ -89,6 +89,18 @@ declare namespace blackforest {
             name: string;
             background: string;
         };
+        journey01: {
+            name: string;
+            background: string;
+        };
+        journey02: {
+            name: string;
+            background: string;
+        };
+        journey03: {
+            name: string;
+            background: string;
+        };
         woods01: {
             name: string;
             background: string;

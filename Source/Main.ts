@@ -84,6 +84,18 @@ namespace blackforest {
       name: "River03",
       background: "Images/Backgrounds/bg_river03.jpg"
     },
+    journey01: {
+      name: "Journey01",
+      background: "Images/Backgrounds/bg_journey01.jpg"
+    },
+    journey02: {
+      name: "Journey02",
+      background: "Images/Backgrounds/bg_journey02.jpg"
+    },
+    journey03: {
+      name: "Journey03",
+      background: "Images/Backgrounds/bg_journey03.jpg"
+    },
     woods01: {
       name: "Woods01",
       background: "Images/Backgrounds/bg_woods01.jpg"
@@ -104,6 +116,7 @@ namespace blackforest {
       name: "Woods05",
       background: "Images/Backgrounds/bg_woods05.jpg"
     },
+    
 
 
     endingGood: {

@@ -5,6 +5,7 @@
       "../Source/01_Arrival.ts",
       "../Source/02_Quarry.ts",
       "../Source/03-1_River.ts",
+      "../Source/03-2_Journey.ts",
       "../Source/04_Woods.ts",
       "../Source/06_Ending.ts",
       "../Source/Main.ts"
@@ -19,7 +20,7 @@
         },
         {
           "pos": 15,
-          "end": 29929,
+          "end": 30316,
           "kind": "text"
         }
       ],
@@ -47,11 +48,11 @@
       "sections": [
         {
           "pos": 0,
-          "end": 4093,
+          "end": 4375,
           "kind": "text"
         }
       ]
     }
   },
-  "version": "4.2.3"
+  "version": "4.2.4"
 }

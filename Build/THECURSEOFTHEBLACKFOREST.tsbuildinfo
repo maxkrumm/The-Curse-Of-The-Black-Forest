@@ -7,7 +7,9 @@
       "../Source/03-1_River.ts",
       "../Source/03-2_Journey.ts",
       "../Source/04_Woods.ts",
-      "../Source/06_Ending.ts",
+      "../Source/05_Ending_Secret.ts",
+      "../Source/06_Ending_Good.ts",
+      "../Source/07_Ending_Bad.ts",
       "../Source/Main.ts"
     ],
     "js": {
@@ -20,7 +22,7 @@
         },
         {
           "pos": 15,
-          "end": 30316,
+          "end": 41319,
           "kind": "text"
         }
       ],
@@ -48,11 +50,11 @@
       "sections": [
         {
           "pos": 0,
-          "end": 4375,
+          "end": 4751,
           "kind": "text"
         }
       ]
     }
   },
-  "version": "4.2.4"
+  "version": "4.2.3"
 }

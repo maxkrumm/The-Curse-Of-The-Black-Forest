@@ -4,15 +4,13 @@ namespace blackforest {
 
   console.log("Loaded!");
 
-  //define transition
   export let transition = {
-    clock: {
-      duration: 1,
-      alpha: "",
+    blur: {
+      duration: 2,
+      alpha: "Images/Transitions/trans_blur.jpg",
       edge: 1
     }
   };
-
 
   //define sound
   export let sound = {
@@ -20,13 +18,16 @@ namespace blackforest {
     arrivalLoop: "Sound/Music/mus_arrival_loop.wav",
     quarryLoop: "Sound/Music/mus_quarry_loop.wav",
     //Sounds
-    click: ""
   };
 
   export let locations = {
     black: {
       name: "Black",
       background: "Images/Black.jpg"
+    },
+    white: {
+      name: "White",
+      background: "Images/White.jpg"
     },
     arrival01: {
       name: "Arrival01",
@@ -116,12 +117,9 @@ namespace blackforest {
       name: "Woods05",
       background: "Images/Backgrounds/bg_woods05.jpg"
     },
-    
-
-
     endingGood: {
       name: "EndingGood",
-      background: "Images/Ending.jpg"
+      background: "Images/ending_good.jpg"
     },
   };
 
@@ -180,51 +178,56 @@ namespace blackforest {
     },
   };
 
-  /*let volume: number = 1.0;
-   
-  export function incrementSound(): void {
-   if (volume < 100) {
-     volume += 0.1;
-     ƒS.Sound.setVolume(sound.mainTheme, volume);
-   }
-  }
-   
-  export function decrementSound(): void {
-   if (volume > 0) {
-     volume -= 0.1;
-     ƒS.Sound.setVolume(sound.mainTheme, volume);
-   }
-  }
-   
-  let inGameMenu = {
-  save: "Save",
-  load: "Load",
-  close: "Close",
-  turnUpVolume: "+",
-  turnDownVolume: "-",
-  credits: "Credits",
-  about: "About",
-  };
-   
-  //create Menu with buttons
-  let gameMenu: ƒS.Menu;
-   
-  async function menuButtons(_option: string): Promise<void> {
-  console.log(_option);
-  if (_option == inGameMenu.save) {
-    await ƒS.Progress.save();
-  }
-  else if (_option == inGameMenu.load) {
-    await ƒS.Progress.load();
-  }
-  else if (_option == inGameMenu.turnUpVolume) {
-    incrementSound();
-  }
-  else if (_option == inGameMenu.turnDownVolume) {
-    decrementSound();
-  }
-  };     */
+  let volume: number = 1.0;
 
+  export function incrementSound(): void {
+    if (volume < 100) {
+      volume += 0.1;
+      ƒS.Sound.setMasterVolume(volume);
+    }
+  }
+
+  export function decrementSound(): void {
+    if (volume > 0) {
+      volume -= 0.1;
+      ƒS.Sound.setMasterVolume(volume);
+    }
+  }
+
+//let creditsOpen: boolean = false; 
+
+  async function credits(): Promise<void> {
+    // await ƒS.Text.print("These are the credits.")
+  }
+
+  let inGameMenu = {
+    save: "Save",
+    load: "Load",
+    turnUpVolume: "Volume up",
+    turnDownVolume: "Volume down",
+    credits: "Credits",
+  };
+
+  let gameMenu: ƒS.Menu;
+
+  async function menuButtons(_option: string): Promise<void> {
+    console.log(_option);
+    if (_option == inGameMenu.save) {
+      await ƒS.Progress.save();
+    }
+    else if (_option == inGameMenu.load) {
+      await ƒS.Progress.load();
+    }
+    else if (_option == inGameMenu.turnUpVolume) {
+      incrementSound();
+    }
+    else if (_option == inGameMenu.turnDownVolume) {
+      decrementSound();
+    }
+    else if (_option == inGameMenu.credits) {
+      credits();
+    }
+  };
 
   // Variablen die für den Spielverlauf gespeichert werden sollen
   export let dataForProgress =
@@ -233,44 +236,26 @@ namespace blackforest {
       name: "Wanderer"
     },
     Points: {
-      warden: 0,
-      Sae: 0
+      time: 0,
     },
+    volume
   }
-
-
-  document.addEventListener("keydown", hndKeypress);
-  async function hndKeypress(_event: KeyboardEvent): Promise<void> {
-    switch (_event.code) {
-      /*case ƒ.KEYBOARD_CODE.S:
-        console.log("Save");
-        await ƒS.Progress.save();
-        break;
-      case ƒ.KEYBOARD_CODE.D:
-        console.log("Load");
-        await ƒS.Progress.load();
-        break;*/
-    }
-  }
-
 
   window.addEventListener("load", start);
 
   function start(_event: Event): void {
 
-    /*gameMenu = ƒS.Menu.create(inGameMenu, menuButtons, "gameMenu");
-  
-    let uff = document.getElementsByClassName("gameMenu")[0];
-    uff.setAttribute("id", "MenuID");*/
-
-
+    gameMenu = ƒS.Menu.create(inGameMenu, menuButtons, "gameMenu");
 
     let scenes: ƒS.Scenes = [
-      { scene: Arrival, name: "Arrival" },
-      { scene: Quarry, name: "Quarry" },
-      { scene: River, name: "River" },
-      { scene: Woods, name: "Woods" },
-      { scene: EndingGood, name: "Ending" },
+      { scene: Arrival, name: "Arrival", id: "Arrival" },
+      //{ scene: Quarry, name: "Quarry", id: "Quarry"},
+      //{ scene: River, name: "River", id: "River", next: "Woods"},
+      //{ scene: Journey, name: "journey", id: "Journey", next: "Woods"},
+      { scene: Woods, name: "Woods", id: "Woods" },
+      { scene: EndingGood, name: "EndingGood", id: "EndingGood" },
+      { scene: EndingBad, name: "EndingBad", id: "EndingBad" },
+      { scene: EndingSecret, name: "EndingSecret", id: "EndingSecret" },
     ];
 
     ƒS.Progress.setData(dataForProgress);

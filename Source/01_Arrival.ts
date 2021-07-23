@@ -2,14 +2,26 @@ namespace blackforest {
   export async function Arrival(): ƒS.SceneReturn {
     console.log("Arrival");
 
-
+    let animation: ƒS.AnimationDefinition = {
+      start: { translation: ƒS.positions.bottomright},
+      end: { translation: ƒS.positions.bottomleft},
+      duration: 1,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    }
 
     ƒS.Speech.setTickerDelays(30, 2);
+
+    //Blackscreen
+    await ƒS.Location.show(locations.black);
+    await ƒS.update(1);
+    await ƒS.Speech.tell(characters.Narrator, "<em>“Hello wanderer, thank you for your time. This is of utmost importance, you have to bring this medicine to the black forest in the south immediately! Head there as fast as your feet will carry you, your troubles shall not be in vein. Travel safely, friend...”</em>");
+    ƒS.Speech.clear();
+    await ƒS.update(2);
 
     //Scene 1
     ƒS.Sound.fade(sound.arrivalLoop, 0.2, 0.1, true);
     await ƒS.Location.show(locations.arrival01);
-    await ƒS.update(1);
+    await ƒS.update(transition.blur.duration, transition.blur.alpha, transition.blur.edge);
     await ƒS.Speech.tell(characters.Narrator, "Walking, walking, walking... The last couple of days have been quite a journey. Although nothing special has really happened on the way, you're glad you have finally arrived here at the black forest.");
     await ƒS.Speech.tell(characters.Narrator, "Black forest.. what a scary name. Something is really off about this place, an eeriness that makes you feel uncomfortable. You realize there are no birds singing at all, what is going on here?");
     ƒS.Speech.clear();
@@ -18,7 +30,7 @@ namespace blackforest {
     await ƒS.Location.show(locations.arrival02);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Narrator, "The sun is shining through the trees, casting shadows on the ground that is still coated in dew.");
-    await ƒS.Speech.tell(characters.Narrator, "Now that you think about it, the guy who told you to come here back in Grayrock didn't look like the most trustworthy person in the world, a Kwelk after all.");
+    await ƒS.Speech.tell(characters.Narrator, "Now that you think about it, the guy who told you to go here back in Grayrock didn't look like the most trustworthy creature in the world, a Kwelk after all.");
     await ƒS.Speech.tell(characters.Narrator, "Not a lot of information that he gave you either, just told you that they really needed a Wanderer to help them. You would not regret it, he said...");
     ƒS.Speech.clear();
 
@@ -30,7 +42,7 @@ namespace blackforest {
 
     //Scene 3
     await ƒS.Location.show(locations.arrival03);
-    await ƒS.Character.show(characters.warden, characters.warden.pose.normal, ƒS.positions.bottomleft);
+    await ƒS.Character.animate(characters.warden, characters.warden.pose.normal, animation);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.warden, "Greetings stranger, I am the Warden of the Eastern Gate, what is your name?");
     ƒS.Speech.clear();
@@ -38,7 +50,7 @@ namespace blackforest {
     dataForProgress.Protagonist.name = await ƒS.Speech.getInput();
     console.log(dataForProgress.Protagonist.name);
     await ƒS.update(1);
-    await ƒS.Speech.tell(characters.warden, "Ah, nice to finally meet you " + dataForProgress.Protagonist.name +", I know why you are here, the forest has been awaiting your arrival. I assume you might have a lot of questions, you will have to wait a bit longer, I am not the one who can answer them.");
+    await ƒS.Speech.tell(characters.warden, "Ah, nice to finally meet you " + dataForProgress.Protagonist.name + ", I know why you are here, the forest has been awaiting your arrival. I assume you might have a lot of questions, you will have to wait a bit longer, I am not the one who can answer them.");
     await ƒS.Speech.tell(characters.warden, "Please go see the people at the quarry and talk to Quill, the Head of the Beahorns. He is already waiting there for you, he will tell you what to do next!");
     await ƒS.Speech.tell(characters.warden, "Thank you for coming, we really need your help here. Now go on and take care, just follow the river and you can't miss the quarry!");
     await ƒS.update(1);
@@ -110,15 +122,35 @@ namespace blackforest {
     //Scene 8
     await ƒS.Location.show(locations.arrival08);
     await ƒS.update(1);
-    await ƒS.Speech.tell(characters.Narrator, "After some time you reach the impressive scenery of a waterfall. You think about taking a rest but remember your mission, better not let anyone wait!");
+    await ƒS.Speech.tell(characters.Narrator, "After some time you reach the impressive scenery of a waterfall. What a beautiful, calming place. You think about taking a rest..");
     ƒS.Speech.clear();
+
+    let decisionRestAnswers = {
+      rest: "Take a break and rest.",
+      continue: "Continue walking."
+    };
+
+    let decisionRest = await ƒS.Menu.getInput(decisionRestAnswers, "Decisions");
+
+    switch (decisionRest) {
+      case decisionRestAnswers.rest:
+        dataForProgress.Points.time += 10;
+        //Blackscreen
+        await ƒS.Location.show(locations.black);
+        await ƒS.update(1);
+        await ƒS.Speech.tell(characters.Narrator, "You sit down, take of your shoes and cool you sore feet in the ice cold river water. Refreshed and motivated you feel ready for the rest of your journey!");
+        ƒS.Speech.clear();
+        break;
+      case decisionRestAnswers.continue:
+        break;
+    }
 
     //Scene 9
     await ƒS.Location.show(locations.arrival09);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Narrator, "To your left you see a bridge across the river made of some wood planks. The Quarry can’t be far from here..");
     ƒS.Speech.clear();
-    
+
 
 
 

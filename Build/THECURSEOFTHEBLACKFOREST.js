@@ -3,11 +3,23 @@ var blackforest;
 (function (blackforest) {
     async function Arrival() {
         console.log("Arrival");
+        let animation = {
+            start: { translation: blackforest.ƒS.positions.bottomright },
+            end: { translation: blackforest.ƒS.positions.bottomleft },
+            duration: 1,
+            playmode: blackforest.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        };
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
+        //Blackscreen
+        await blackforest.ƒS.Location.show(blackforest.locations.black);
+        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "<em>“Hello wanderer, thank you for your time. This is of utmost importance, you have to bring this medicine to the black forest in the south immediately! Head there as fast as your feet will carry you, your troubles shall not be in vein. Travel safely, friend...”</em>");
+        blackforest.ƒS.Speech.clear();
+        await blackforest.ƒS.update(2);
         //Scene 1
         blackforest.ƒS.Sound.fade(blackforest.sound.arrivalLoop, 0.2, 0.1, true);
         await blackforest.ƒS.Location.show(blackforest.locations.arrival01);
-        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.update(blackforest.transition.blur.duration, blackforest.transition.blur.alpha, blackforest.transition.blur.edge);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Walking, walking, walking... The last couple of days have been quite a journey. Although nothing special has really happened on the way, you're glad you have finally arrived here at the black forest.");
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Black forest.. what a scary name. Something is really off about this place, an eeriness that makes you feel uncomfortable. You realize there are no birds singing at all, what is going on here?");
         blackforest.ƒS.Speech.clear();
@@ -15,7 +27,7 @@ var blackforest;
         await blackforest.ƒS.Location.show(blackforest.locations.arrival02);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "The sun is shining through the trees, casting shadows on the ground that is still coated in dew.");
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Now that you think about it, the guy who told you to come here back in Grayrock didn't look like the most trustworthy person in the world, a Kwelk after all.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Now that you think about it, the guy who told you to go here back in Grayrock didn't look like the most trustworthy creature in the world, a Kwelk after all.");
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Not a lot of information that he gave you either, just told you that they really needed a Wanderer to help them. You would not regret it, he said...");
         blackforest.ƒS.Speech.clear();
         //Blackscreen
@@ -25,7 +37,7 @@ var blackforest;
         blackforest.ƒS.Speech.clear();
         //Scene 3
         await blackforest.ƒS.Location.show(blackforest.locations.arrival03);
-        await blackforest.ƒS.Character.show(blackforest.characters.warden, blackforest.characters.warden.pose.normal, blackforest.ƒS.positions.bottomleft);
+        await blackforest.ƒS.Character.animate(blackforest.characters.warden, blackforest.characters.warden.pose.normal, animation);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Greetings stranger, I am the Warden of the Eastern Gate, what is your name?");
         blackforest.ƒS.Speech.clear();
@@ -98,8 +110,25 @@ var blackforest;
         //Scene 8
         await blackforest.ƒS.Location.show(blackforest.locations.arrival08);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After some time you reach the impressive scenery of a waterfall. You think about taking a rest but remember your mission, better not let anyone wait!");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After some time you reach the impressive scenery of a waterfall. What a beautiful, calming place. You think about taking a rest..");
         blackforest.ƒS.Speech.clear();
+        let decisionRestAnswers = {
+            rest: "Take a break and rest.",
+            continue: "Continue walking."
+        };
+        let decisionRest = await blackforest.ƒS.Menu.getInput(decisionRestAnswers, "Decisions");
+        switch (decisionRest) {
+            case decisionRestAnswers.rest:
+                blackforest.dataForProgress.Points.time += 10;
+                //Blackscreen
+                await blackforest.ƒS.Location.show(blackforest.locations.black);
+                await blackforest.ƒS.update(1);
+                await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You sit down, take of your shoes and cool you sore feet in the ice cold river water. Refreshed and motivated you feel ready for the rest of your journey!");
+                blackforest.ƒS.Speech.clear();
+                break;
+            case decisionRestAnswers.continue:
+                break;
+        }
         //Scene 9
         await blackforest.ƒS.Location.show(blackforest.locations.arrival09);
         await blackforest.ƒS.update(1);
@@ -131,31 +160,51 @@ var blackforest;
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "Introducing himself.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "Welcome stranger, you must be the wanderer they sent! What is your name? ……..ah, " + blackforest.dataForProgress.Protagonist.name + " good to meet you. My Name is Quill, you could say I run this place but on the other hand I would be nothing without my workers. You have to know we are very hard working folks, not that I wanted to brag or anything but.. you know.. this forest wouldn’t be the same without us! Hahahahah!");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "However, I know you are here for a reason and I’m just the right guy to help you out! Hahahah! ..to be honest, the situation here has been anything but funny lately. The guardian of the forest, you might not have heard about him, let me tell you.. He is the spirit of this forest, he keeps balance and watches over us all.");
         await blackforest.ƒS.Character.hide(blackforest.characters.quill);
         await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.angry, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "Telling you more about the situation forest and the mission.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "But things haven’t been the same since a couple of days, rumor has it he has become ill, some even say he was... ...cursed. Well I don’t know much about those magic things, but I know one thing for sure, this place has lost it’s lifeliness. We don’t feel safe anymore.");
         await blackforest.ƒS.Character.hide(blackforest.characters.quill);
         await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "I think the best thing is if you head directly to the guardian of the forest and bring him the medicine. We can take one of our boats to get you there a lot faster, follow me to the harbor!");
-        await blackforest.ƒS.Character.hide(blackforest.characters.quill);
-        blackforest.ƒS.Speech.clear();
-        await blackforest.ƒS.update(1);
-        //Scene 2
-        await blackforest.ƒS.Location.show(blackforest.locations.quarry02);
-        await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.normal, blackforest.ƒS.positions.bottomleft);
-        await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "This is the harbor, from here we deliver our resources into all the corners of the forest! Usually we don’t allow any passengers, but for you I will make an exception. I’ll get us a boat!");
-        blackforest.ƒS.Speech.clear();
-        await blackforest.ƒS.Character.hide(blackforest.characters.quill);
-        await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You follow Quill to the water and get with him into a small wooden boat.");
-        blackforest.ƒS.Speech.clear();
-        blackforest.ƒS.Sound.fade(blackforest.sound.quarryLoop, 0, 3);
-        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "This is where you come in! I heard you carry some kind of medicine with you, let’s hope this will solve our problem! I think the best thing is if you head directly to the guardian of the forest and bring him the medicine. We can take one of our boats to get you there a lot faster or you can walk, however you prefer!");
+        let decisionTravelAnswers = {
+            boat: "Take the boat.",
+            walk: "Walk."
+        };
+        let decisionTravel = await blackforest.ƒS.Menu.getInput(decisionTravelAnswers, "Decisions");
+        switch (decisionTravel) {
+            case decisionTravelAnswers.boat:
+                await blackforest.ƒS.Character.hide(blackforest.characters.quill);
+                blackforest.ƒS.Speech.clear();
+                await blackforest.ƒS.update(1);
+                //Scene 2
+                await blackforest.ƒS.Location.show(blackforest.locations.quarry02);
+                await blackforest.ƒS.update(1);
+                await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.normal, blackforest.ƒS.positions.bottomleft);
+                await blackforest.ƒS.update(1);
+                await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "This is the harbor, from here we deliver our resources into all the corners of the forest! Usually we don’t allow any passengers, but for you I will make an exception. I’ll get us a boat!");
+                blackforest.ƒS.Speech.clear();
+                await blackforest.ƒS.Character.hide(blackforest.characters.quill);
+                await blackforest.ƒS.update(1);
+                await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You follow Quill to the water and get with him into a small wooden boat.");
+                blackforest.ƒS.Speech.clear();
+                blackforest.ƒS.Sound.fade(blackforest.sound.quarryLoop, 0, 3);
+                await blackforest.ƒS.update(1);
+                return "River";
+            case decisionTravelAnswers.walk:
+                blackforest.dataForProgress.Points.time += 10;
+                blackforest.ƒS.Speech.clear();
+                await blackforest.ƒS.update(1);
+                await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "Alright fine, whatever works best for you, you know what you are doing!");
+                await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "It was great getting to meet you, you are the only hope we have got right now! To get to your destination just follow the path along the river until you get to the entrance of the woods, you won’t be able to miss it. Good luck my friend!");
+                await blackforest.ƒS.Character.hide(blackforest.characters.quill);
+                blackforest.ƒS.Speech.clear();
+                await blackforest.ƒS.update(1);
+                return "Journey";
+        }
     }
     blackforest.Quarry = Quarry;
 })(blackforest || (blackforest = {}));
@@ -200,19 +249,60 @@ var blackforest;
 })(blackforest || (blackforest = {}));
 var blackforest;
 (function (blackforest) {
+    async function Journey() {
+        console.log("Journey");
+        blackforest.ƒS.Speech.setTickerDelays(30, 2);
+        //Scene 1
+        await blackforest.ƒS.Location.show(blackforest.locations.journey01);
+        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You leave the place over a massive bridge that is leading up onto a hill from where you get a nice view onto the quarry and the workings of the beahorns.");
+        blackforest.ƒS.Speech.clear();
+        //Scene 2
+        await blackforest.ƒS.Location.show(blackforest.locations.journey02);
+        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "The path stays high and leads along the river through the beautiful morning sun.");
+        blackforest.ƒS.Speech.clear();
+        //Scene 3
+        await blackforest.ƒS.Location.show(blackforest.locations.journey03);
+        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Along the way you come across a couple more interesting places like some huge collapsed trees and their roots springing up into the sky, still holding on the earth they ripped out of the ground with them.");
+        blackforest.ƒS.Speech.clear();
+        //Blackscreen
+        await blackforest.ƒS.Location.show(blackforest.locations.black);
+        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After some time walking you arrive at the end of the road. This must be the entrance Quill was takling about..");
+        blackforest.ƒS.Speech.clear();
+    }
+    blackforest.Journey = Journey;
+    ;
+})(blackforest || (blackforest = {}));
+var blackforest;
+(function (blackforest) {
     async function Woods() {
         console.log("Woods");
+        let animation = {
+            start: { translation: blackforest.ƒS.positions.bottomright },
+            end: { translation: blackforest.ƒS.positions.bottomleft },
+            duration: 1,
+            playmode: blackforest.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        };
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
         //Scene 1
         await blackforest.ƒS.Location.show(blackforest.locations.woods01);
+        //check time value for debug
+        console.log(blackforest.dataForProgress.Points.time);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "In front of you you see a path forging through an overgrown thicket and you’re hardly able to make out where it leads. Without thinking about it too much you head on into the unknown.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "In front of you you see another, much more narrow path forging through an overgrown thicket and you’re barely able to make out where it leads. Without thinking about it too much you head on into the unknown.");
         blackforest.ƒS.Speech.clear();
         //Scene 2
         await blackforest.ƒS.Location.show(blackforest.locations.woods02);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After a short while the overgrowth starts to thin out and as you slowly march up the hill in front of you, you start to feel a strong and calming aura around you.");
         blackforest.ƒS.Speech.clear();
+        //Trigger Secret Ending
+        if (blackforest.dataForProgress.Points.time == 10) {
+            return "EndingSecret";
+        }
         //Scene 3
         await blackforest.ƒS.Location.show(blackforest.locations.woods03);
         await blackforest.ƒS.update(1);
@@ -220,7 +310,7 @@ var blackforest;
         blackforest.ƒS.Speech.clear();
         //Blackscreen
         await blackforest.ƒS.Location.show(blackforest.locations.black);
-        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.update(blackforest.transition.blur.duration, blackforest.transition.blur.alpha, blackforest.transition.blur.edge);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You have lost track of how long you have been in this mesmerizing place.");
         blackforest.ƒS.Speech.clear();
         //Scene 4
@@ -233,40 +323,110 @@ var blackforest;
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "There he is lying, the guardian of the forest. You immediately know that it is him, the aura has gotten really strong. As you take another step forward you notice something in the corner of your eye. A creature appears in front of you and stops in your way.");
         blackforest.ƒS.Speech.clear();
-        await blackforest.ƒS.Character.show(blackforest.characters.moora, blackforest.characters.moora.pose.normal, blackforest.ƒS.positions.bottomleft);
+        await blackforest.ƒS.Character.animate(blackforest.characters.moora, blackforest.characters.moora.pose.normal, animation);
         await blackforest.ƒS.update(1);
-        //Good Ending
-        await blackforest.ƒS.Speech.tell(blackforest.characters.moora, "Hold there," + blackforest.dataForProgress.Protagonist.name + ". You cannot go any further from here. First I need to see the rune, show it to me, then I will tell you what will happen.");
-        //Show Rune
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Thank you. My name is Moora. I am here to speak for the guardian of this forest, for he does not speak our language. I believe you have heard about the condition he is currently in, for this is the reason you are here. Do you have what was given to you with you?”");
-        //Show Medicine
-        await blackforest.ƒS.Character.hide(blackforest.characters.moora);
-        blackforest.ƒS.Speech.clear();
-        await blackforest.ƒS.update(1);
+        if (blackforest.dataForProgress.Points.time == 0) {
+            return "EndingGood";
+        }
+        else {
+            return "EndingBad";
+        }
     }
     blackforest.Woods = Woods;
     ;
 })(blackforest || (blackforest = {}));
 var blackforest;
 (function (blackforest) {
-    async function EndingGood() {
-        console.log("Ending");
+    async function EndingSecret() {
+        console.log("EndingSecret");
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
+        //Ending Scene 1
+        await blackforest.ƒS.Location.show(blackforest.locations.woods03);
+        await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Walking is feeling a lot easier than before and stop paying attention to your steps. The path has dissolved into a mossy ground beneath your feet and you feel like you’re walking on clouds, dreaming away..");
+        await blackforest.ƒS.Location.show(blackforest.locations.black);
+        await blackforest.ƒS.update(blackforest.transition.blur.duration, blackforest.transition.blur.alpha, blackforest.transition.blur.edge);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Suddenly you hear a rustling noise behind you!");
+        blackforest.ƒS.Speech.clear();
+        await blackforest.ƒS.Location.show(blackforest.locations.white);
+        await blackforest.ƒS.update(0);
+        await blackforest.ƒS.Location.show(blackforest.locations.black);
+        await blackforest.ƒS.update(4);
+        let replayButtonOptions = {
+            replay: "Play again",
+        };
+        let replayButton = await blackforest.ƒS.Menu.getInput(replayButtonOptions, "Replay");
+        switch (replayButton) {
+            case replayButtonOptions.replay:
+                return "Arrival";
+        }
+    }
+    blackforest.EndingSecret = EndingSecret;
+})(blackforest || (blackforest = {}));
+var blackforest;
+(function (blackforest) {
+    async function EndingGood() {
+        console.log("EndingGood");
+        blackforest.ƒS.Speech.setTickerDelays(30, 2);
+        //Good Ending
+        await blackforest.ƒS.Speech.tell(blackforest.characters.moora, "Hold there," + blackforest.dataForProgress.Protagonist.name + ". You cannot go any further from here. First I need to see the rune, show it to me, then I will tell you what will happen.");
+        //Show Rune
+        await blackforest.ƒS.Speech.tell(blackforest.characters.moora, "Thank you. My name is Moora. I am here to speak for the guardian of this forest, for he does not speak our language. I believe you have heard about the condition he is currently in, for this is the reason you are here. Do you have what was given to you with you?");
+        //Show Medicine
+        await blackforest.ƒS.Speech.tell(blackforest.characters.moora, "This is it! Thank you very much, you have saved us all.");
+        await blackforest.ƒS.Character.hide(blackforest.characters.moora);
+        blackforest.ƒS.Speech.clear();
+        await blackforest.ƒS.update(1);
         await blackforest.ƒS.Location.show(blackforest.locations.endingGood);
         await blackforest.ƒS.update(1);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "What a journey this has been! You slowly walk back the way you came and enjoy the sun on your skin. Life has come back into the forest and the birds are singing in the trees again, what a beautiful day…");
+        blackforest.ƒS.Speech.clear();
+        await blackforest.ƒS.Location.show(blackforest.locations.black);
+        await blackforest.ƒS.update(3);
+        let replayButtonOptions = {
+            replay: "Play again",
+        };
+        let replayButton = await blackforest.ƒS.Menu.getInput(replayButtonOptions, "Replay");
+        switch (replayButton) {
+            case replayButtonOptions.replay:
+                return "Arrival";
+        }
     }
     blackforest.EndingGood = EndingGood;
+})(blackforest || (blackforest = {}));
+var blackforest;
+(function (blackforest) {
+    async function EndingBad() {
+        console.log("EndingBad");
+        blackforest.ƒS.Speech.setTickerDelays(30, 2);
+        //Bad Ending
+        await blackforest.ƒS.Speech.tell(blackforest.characters.moora, "Hold there, wanderer! I am afraid you’re too late.. I don’t know what took you so long, but there is nothing left for you to do here, leave this place!");
+        await blackforest.ƒS.Character.hide(blackforest.characters.moora);
+        blackforest.ƒS.Speech.clear();
+        await blackforest.ƒS.Location.show(blackforest.locations.black);
+        await blackforest.ƒS.update(3);
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "In shock you stumble back into the woods behind you, how could this have happened? You realize that you have been way too careless and lost focus on your mission too easily, what a rookie mistake..");
+        blackforest.ƒS.Speech.clear();
+        let replayButtonOptions = {
+            replay: "Play again",
+        };
+        let replayButton = await blackforest.ƒS.Menu.getInput(replayButtonOptions, "Replay");
+        switch (replayButton) {
+            case replayButtonOptions.replay:
+                return "Arrival";
+        }
+    }
+    blackforest.EndingBad = EndingBad;
 })(blackforest || (blackforest = {}));
 var blackforest;
 (function (blackforest) {
     blackforest.ƒ = FudgeCore;
     blackforest.ƒS = FudgeStory;
     console.log("Loaded!");
-    //define transition
     blackforest.transition = {
-        clock: {
-            duration: 1,
-            alpha: "",
+        blur: {
+            duration: 2,
+            alpha: "Images/Transitions/trans_blur.jpg",
             edge: 1
         }
     };
@@ -276,12 +436,15 @@ var blackforest;
         arrivalLoop: "Sound/Music/mus_arrival_loop.wav",
         quarryLoop: "Sound/Music/mus_quarry_loop.wav",
         //Sounds
-        click: ""
     };
     blackforest.locations = {
         black: {
             name: "Black",
             background: "Images/Black.jpg"
+        },
+        white: {
+            name: "White",
+            background: "Images/White.jpg"
         },
         arrival01: {
             name: "Arrival01",
@@ -373,7 +536,7 @@ var blackforest;
         },
         endingGood: {
             name: "EndingGood",
-            background: "Images/Ending.jpg"
+            background: "Images/ending_good.jpg"
         },
     };
     blackforest.overlays = {
@@ -429,85 +592,74 @@ var blackforest;
             }
         },
     };
-    /*let volume: number = 1.0;
-     
-    export function incrementSound(): void {
-     if (volume < 100) {
-       volume += 0.1;
-       ƒS.Sound.setVolume(sound.mainTheme, volume);
-     }
+    let volume = 1.0;
+    function incrementSound() {
+        if (volume < 100) {
+            volume += 0.1;
+            blackforest.ƒS.Sound.setMasterVolume(volume);
+        }
     }
-     
-    export function decrementSound(): void {
-     if (volume > 0) {
-       volume -= 0.1;
-       ƒS.Sound.setVolume(sound.mainTheme, volume);
-     }
+    blackforest.incrementSound = incrementSound;
+    function decrementSound() {
+        if (volume > 0) {
+            volume -= 0.1;
+            blackforest.ƒS.Sound.setMasterVolume(volume);
+        }
     }
-     
+    blackforest.decrementSound = decrementSound;
+    //let creditsOpen: boolean = false; 
+    async function credits() {
+        // await ƒS.Text.print("These are the credits.")
+    }
     let inGameMenu = {
-    save: "Save",
-    load: "Load",
-    close: "Close",
-    turnUpVolume: "+",
-    turnDownVolume: "-",
-    credits: "Credits",
-    about: "About",
+        save: "Save",
+        load: "Load",
+        turnUpVolume: "Volume up",
+        turnDownVolume: "Volume down",
+        credits: "Credits",
     };
-     
-    //create Menu with buttons
-    let gameMenu: ƒS.Menu;
-     
-    async function menuButtons(_option: string): Promise<void> {
-    console.log(_option);
-    if (_option == inGameMenu.save) {
-      await ƒS.Progress.save();
+    let gameMenu;
+    async function menuButtons(_option) {
+        console.log(_option);
+        if (_option == inGameMenu.save) {
+            await blackforest.ƒS.Progress.save();
+        }
+        else if (_option == inGameMenu.load) {
+            await blackforest.ƒS.Progress.load();
+        }
+        else if (_option == inGameMenu.turnUpVolume) {
+            incrementSound();
+        }
+        else if (_option == inGameMenu.turnDownVolume) {
+            decrementSound();
+        }
+        else if (_option == inGameMenu.credits) {
+            credits();
+        }
     }
-    else if (_option == inGameMenu.load) {
-      await ƒS.Progress.load();
-    }
-    else if (_option == inGameMenu.turnUpVolume) {
-      incrementSound();
-    }
-    else if (_option == inGameMenu.turnDownVolume) {
-      decrementSound();
-    }
-    };     */
+    ;
     // Variablen die für den Spielverlauf gespeichert werden sollen
     blackforest.dataForProgress = {
         Protagonist: {
             name: "Wanderer"
         },
         Points: {
-            warden: 0,
-            Sae: 0
+            time: 0,
         },
+        volume
     };
-    document.addEventListener("keydown", hndKeypress);
-    async function hndKeypress(_event) {
-        switch (_event.code) {
-            /*case ƒ.KEYBOARD_CODE.S:
-              console.log("Save");
-              await ƒS.Progress.save();
-              break;
-            case ƒ.KEYBOARD_CODE.D:
-              console.log("Load");
-              await ƒS.Progress.load();
-              break;*/
-        }
-    }
     window.addEventListener("load", start);
     function start(_event) {
-        /*gameMenu = ƒS.Menu.create(inGameMenu, menuButtons, "gameMenu");
-      
-        let uff = document.getElementsByClassName("gameMenu")[0];
-        uff.setAttribute("id", "MenuID");*/
+        gameMenu = blackforest.ƒS.Menu.create(inGameMenu, menuButtons, "gameMenu");
         let scenes = [
-            { scene: blackforest.Arrival, name: "Arrival" },
-            { scene: blackforest.Quarry, name: "Quarry" },
-            { scene: blackforest.River, name: "River" },
-            { scene: blackforest.Woods, name: "Woods" },
-            { scene: blackforest.EndingGood, name: "Ending" },
+            { scene: blackforest.Arrival, name: "Arrival", id: "Arrival" },
+            //{ scene: Quarry, name: "Quarry", id: "Quarry"},
+            //{ scene: River, name: "River", id: "River", next: "Woods"},
+            //{ scene: Journey, name: "journey", id: "Journey", next: "Woods"},
+            { scene: blackforest.Woods, name: "Woods", id: "Woods" },
+            { scene: blackforest.EndingGood, name: "EndingGood", id: "EndingGood" },
+            { scene: blackforest.EndingBad, name: "EndingBad", id: "EndingBad" },
+            { scene: blackforest.EndingSecret, name: "EndingSecret", id: "EndingSecret" },
         ];
         blackforest.ƒS.Progress.setData(blackforest.dataForProgress);
         // start the sequence

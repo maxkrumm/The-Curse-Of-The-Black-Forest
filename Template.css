@@ -6,7 +6,7 @@ html, body {
   background-color: black;
   overflow: hidden;
   font-family:'Gill Sans', 'Gill Sans MT', sans-serif;
-  font-size: 150%;
+  font-size: 30px;
   }
   
   scene {
@@ -24,19 +24,94 @@ html, body {
   speech { 
   position: absolute;
   display: block;
-  background-image: url("./Board/BlackFadeRight.png");
+  /*background-image: url("./Board/BlackFadeRight.png");*/
+  background-color: whitesmoke;
   background-size: cover;
   bottom: 0px;
   left: 0px;
-  width: 100%;
+  width: 98.3%;
   height: 15%;
-  color: rgb(255, 255, 255);
-  }
-  
-  /*speech.charTalk name {
-  color: rgb(94, 94, 94); 
+  color: rgb(0, 0, 0);
+  border: 5px solid black;
+  border-radius: 50px;
+  padding: 16px;
+  margin: 0px 0px;
   }
 
- /* Decisions{
+  content input {
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 30px;
+  }
+
+  name {
+    font-weight: bold;
+  }
+
+  dialog {
+  }
+
+  .gameMenu {
+    background: none;
+    bottom: 0px;
+    right: 0px;
+    position: fixed;
+    border: none;
+    margin-right: 0px;
+  }
+
+  .gameMenu button {
+    font-weight: bold;
+    text-transform: capitalize;
+    background-color: white;
+    margin: 4px;
+    padding: 8px;
+    border-radius: 8px;
+    min-width: 200px;
+    border: 2px black solid; 
+   ;
+  }
+
+  .Replay {
 
   }
+
+
+
+dialog {
+  background-color: rgba(11, 14, 19, 0.9);
+  color: rgb(203, 253, 255);
+  border: none;
+}
+
+dialog::-webkit-scrollbar {
+  width: 0.35em;
+}
+
+dialog::-webkit-scrollbar-thumb {
+  background-color: rgb(203, 253, 255);
+  border: 2px solid rgba(11, 14, 19, 0.9);
+}
+
+dialog Button {
+  background-color: aquamarine;
+  color: black;
+  border: none;
+  height: 2em;
+  margin: 0.2em;
+}
+
+dialog Button:hover {
+  background-color: grey;
+  color: white;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+dialog[type="text"] {
+  width: 75vw;
+  height: 45vh;
+  padding: 5em 2.5em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

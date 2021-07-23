@@ -8,16 +8,25 @@ declare namespace blackforest {
     function River(): ƒS.SceneReturn;
 }
 declare namespace blackforest {
+    function Journey(): ƒS.SceneReturn;
+}
+declare namespace blackforest {
     function Woods(): ƒS.SceneReturn;
+}
+declare namespace blackforest {
+    function EndingSecret(): ƒS.SceneReturn;
 }
 declare namespace blackforest {
     function EndingGood(): ƒS.SceneReturn;
 }
 declare namespace blackforest {
+    function EndingBad(): ƒS.SceneReturn;
+}
+declare namespace blackforest {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let transition: {
-        clock: {
+        blur: {
             duration: number;
             alpha: string;
             edge: number;
@@ -26,10 +35,13 @@ declare namespace blackforest {
     let sound: {
         arrivalLoop: string;
         quarryLoop: string;
-        click: string;
     };
     let locations: {
         black: {
+            name: string;
+            background: string;
+        };
+        white: {
             name: string;
             background: string;
         };
@@ -178,13 +190,15 @@ declare namespace blackforest {
             };
         };
     };
+    function incrementSound(): void;
+    function decrementSound(): void;
     let dataForProgress: {
         Protagonist: {
             name: string;
         };
         Points: {
-            warden: number;
-            Sae: number;
+            time: number;
         };
+        volume: number;
     };
 }

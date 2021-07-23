@@ -2,14 +2,21 @@ namespace blackforest {
     export async function Woods(): ƒS.SceneReturn {
         console.log("Woods");
 
-
+        let animation: ƒS.AnimationDefinition = {
+            start: { translation: ƒS.positions.bottomright},
+            end: { translation: ƒS.positions.bottomleft},
+            duration: 1,
+            playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+          }
 
         ƒS.Speech.setTickerDelays(30, 2);
 
         //Scene 1
         await ƒS.Location.show(locations.woods01);
+        //check time value for debug
+        console.log(dataForProgress.Points.time);
         await ƒS.update(1);
-        await ƒS.Speech.tell(characters.Narrator, "In front of you you see a path forging through an overgrown thicket and you’re hardly able to make out where it leads. Without thinking about it too much you head on into the unknown.");
+        await ƒS.Speech.tell(characters.Narrator, "In front of you you see another, much more narrow path forging through an overgrown thicket and you’re barely able to make out where it leads. Without thinking about it too much you head on into the unknown.");
         ƒS.Speech.clear();
 
         //Scene 2
@@ -17,6 +24,11 @@ namespace blackforest {
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.Narrator, "After a short while the overgrowth starts to thin out and as you slowly march up the hill in front of you, you start to feel a strong and calming aura around you.");
         ƒS.Speech.clear();
+
+        //Trigger Secret Ending
+        if (dataForProgress.Points.time == 10){
+            return "EndingSecret";
+        }
 
         //Scene 3
         await ƒS.Location.show(locations.woods03);
@@ -26,7 +38,7 @@ namespace blackforest {
 
         //Blackscreen
         await ƒS.Location.show(locations.black);
-        await ƒS.update(1);
+        await ƒS.update(transition.blur.duration, transition.blur.alpha, transition.blur.edge);
         await ƒS.Speech.tell(characters.Narrator, "You have lost track of how long you have been in this mesmerizing place.");
         ƒS.Speech.clear();
 
@@ -41,18 +53,16 @@ namespace blackforest {
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.Narrator, "There he is lying, the guardian of the forest. You immediately know that it is him, the aura has gotten really strong. As you take another step forward you notice something in the corner of your eye. A creature appears in front of you and stops in your way.");
         ƒS.Speech.clear();
-        await ƒS.Character.show(characters.moora, characters.moora.pose.normal, ƒS.positions.bottomleft);
+        await ƒS.Character.animate(characters.moora, characters.moora.pose.normal, animation);
         await ƒS.update(1);
 
+        if (dataForProgress.Points.time == 0){
+            return "EndingGood";
+        }
 
-        //Good Ending
-        await ƒS.Speech.tell(characters.moora, "Hold there," + dataForProgress.Protagonist.name + ". You cannot go any further from here. First I need to see the rune, show it to me, then I will tell you what will happen.");
-        //Show Rune
-        await ƒS.Speech.tell(characters.Narrator, "Thank you. My name is Moora. I am here to speak for the guardian of this forest, for he does not speak our language. I believe you have heard about the condition he is currently in, for this is the reason you are here. Do you have what was given to you with you?”");
-        //Show Medicine
-        await ƒS.Character.hide(characters.moora);
-        ƒS.Speech.clear();
-        await ƒS.update(1);
+        else{
+            return "EndingBad";
+        }
 
 
     };

@@ -34,8 +34,8 @@ namespace blackforest {
         await ƒS.Speech.tell(characters.quill, "This is where you come in! I heard you carry some kind of medicine with you, let’s hope this will solve our problem! I think the best thing is if you head directly to the guardian of the forest and bring him the medicine. We can take one of our boats to get you there a lot faster or you can walk, however you prefer!");
 
         let decisionTravelAnswers = {
-            boat: "Take the boat.",
-            walk: "Walk."
+            boat: "Take the boat",
+            walk: "Walk"
         };
 
         let decisionTravel = await ƒS.Menu.getInput(decisionTravelAnswers, "Decisions");

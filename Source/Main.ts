@@ -194,18 +194,18 @@ namespace blackforest {
     }
   }
 
-//let creditsOpen: boolean = false; 
+/*let creditsOpen: boolean = false; 
 
   async function credits(): Promise<void> {
-    // await ƒS.Text.print("These are the credits.")
-  }
+    await ƒS.Text.print("These are the credits.")
+  }*/
 
   let inGameMenu = {
     save: "Save",
     load: "Load",
     turnUpVolume: "Volume up",
     turnDownVolume: "Volume down",
-    credits: "Credits",
+  //  credits: "Credits",
   };
 
   let gameMenu: ƒS.Menu;
@@ -224,9 +224,9 @@ namespace blackforest {
     else if (_option == inGameMenu.turnDownVolume) {
       decrementSound();
     }
-    else if (_option == inGameMenu.credits) {
+ /*   else if (_option == inGameMenu.credits) {
       credits();
-    }
+    }*/
   };
 
   // Variablen die für den Spielverlauf gespeichert werden sollen
@@ -249,9 +249,9 @@ namespace blackforest {
 
     let scenes: ƒS.Scenes = [
       { scene: Arrival, name: "Arrival", id: "Arrival" },
-      //{ scene: Quarry, name: "Quarry", id: "Quarry"},
-      //{ scene: River, name: "River", id: "River", next: "Woods"},
-      //{ scene: Journey, name: "journey", id: "Journey", next: "Woods"},
+      { scene: Quarry, name: "Quarry", id: "Quarry"},
+      { scene: River, name: "River", id: "River", next: "Woods"},
+      { scene: Journey, name: "journey", id: "Journey", next: "Woods"},
       { scene: Woods, name: "Woods", id: "Woods" },
       { scene: EndingGood, name: "EndingGood", id: "EndingGood" },
       { scene: EndingBad, name: "EndingBad", id: "EndingBad" },

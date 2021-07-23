@@ -27,7 +27,7 @@ namespace blackforest {
         //Blackscreen
         await ƒS.Location.show(locations.black);
         await ƒS.update(1);
-        await ƒS.Speech.tell(characters.Narrator, "After some time walking you arrive at the end of the road. This must be the entrance Quill was takling about..");
+        await ƒS.Speech.tell(characters.Narrator, "After some time walking you arrive at the end of the road. This must be the entrance Quill was talking about..");
         ƒS.Speech.clear();
 
 

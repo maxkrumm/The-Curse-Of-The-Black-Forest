@@ -126,8 +126,8 @@ namespace blackforest {
     ƒS.Speech.clear();
 
     let decisionRestAnswers = {
-      rest: "Take a break and rest.",
-      continue: "Continue walking."
+      rest: "Take a break and rest",
+      continue: "Continue walking"
     };
 
     let decisionRest = await ƒS.Menu.getInput(decisionRestAnswers, "Decisions");

@@ -23,6 +23,7 @@ namespace blackforest {
 
     switch (replayButton) {
       case replayButtonOptions.replay:
+        dataForProgress.Points.time = 0;
         return "Arrival";
     }
   

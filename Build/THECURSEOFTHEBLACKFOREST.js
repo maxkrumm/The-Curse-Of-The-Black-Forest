@@ -113,8 +113,8 @@ var blackforest;
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After some time you reach the impressive scenery of a waterfall. What a beautiful, calming place. You think about taking a rest..");
         blackforest.ƒS.Speech.clear();
         let decisionRestAnswers = {
-            rest: "Take a break and rest.",
-            continue: "Continue walking."
+            rest: "Take a break and rest",
+            continue: "Continue walking"
         };
         let decisionRest = await blackforest.ƒS.Menu.getInput(decisionRestAnswers, "Decisions");
         switch (decisionRest) {
@@ -171,8 +171,8 @@ var blackforest;
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "This is where you come in! I heard you carry some kind of medicine with you, let’s hope this will solve our problem! I think the best thing is if you head directly to the guardian of the forest and bring him the medicine. We can take one of our boats to get you there a lot faster or you can walk, however you prefer!");
         let decisionTravelAnswers = {
-            boat: "Take the boat.",
-            walk: "Walk."
+            boat: "Take the boat",
+            walk: "Walk"
         };
         let decisionTravel = await blackforest.ƒS.Menu.getInput(decisionTravelAnswers, "Decisions");
         switch (decisionTravel) {
@@ -270,7 +270,7 @@ var blackforest;
         //Blackscreen
         await blackforest.ƒS.Location.show(blackforest.locations.black);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After some time walking you arrive at the end of the road. This must be the entrance Quill was takling about..");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After some time walking you arrive at the end of the road. This must be the entrance Quill was talking about..");
         blackforest.ƒS.Speech.clear();
     }
     blackforest.Journey = Journey;
@@ -413,6 +413,7 @@ var blackforest;
         let replayButton = await blackforest.ƒS.Menu.getInput(replayButtonOptions, "Replay");
         switch (replayButton) {
             case replayButtonOptions.replay:
+                blackforest.dataForProgress.Points.time = 0;
                 return "Arrival";
         }
     }
@@ -607,16 +608,17 @@ var blackforest;
         }
     }
     blackforest.decrementSound = decrementSound;
-    //let creditsOpen: boolean = false; 
-    async function credits() {
-        // await ƒS.Text.print("These are the credits.")
-    }
+    /*let creditsOpen: boolean = false;
+    
+      async function credits(): Promise<void> {
+        await ƒS.Text.print("These are the credits.")
+      }*/
     let inGameMenu = {
         save: "Save",
         load: "Load",
         turnUpVolume: "Volume up",
         turnDownVolume: "Volume down",
-        credits: "Credits",
+        //  credits: "Credits",
     };
     let gameMenu;
     async function menuButtons(_option) {
@@ -633,9 +635,9 @@ var blackforest;
         else if (_option == inGameMenu.turnDownVolume) {
             decrementSound();
         }
-        else if (_option == inGameMenu.credits) {
-            credits();
-        }
+        /*   else if (_option == inGameMenu.credits) {
+             credits();
+           }*/
     }
     ;
     // Variablen die für den Spielverlauf gespeichert werden sollen
@@ -653,9 +655,9 @@ var blackforest;
         gameMenu = blackforest.ƒS.Menu.create(inGameMenu, menuButtons, "gameMenu");
         let scenes = [
             { scene: blackforest.Arrival, name: "Arrival", id: "Arrival" },
-            //{ scene: Quarry, name: "Quarry", id: "Quarry"},
-            //{ scene: River, name: "River", id: "River", next: "Woods"},
-            //{ scene: Journey, name: "journey", id: "Journey", next: "Woods"},
+            { scene: blackforest.Quarry, name: "Quarry", id: "Quarry" },
+            { scene: blackforest.River, name: "River", id: "River", next: "Woods" },
+            { scene: blackforest.Journey, name: "journey", id: "Journey", next: "Woods" },
             { scene: blackforest.Woods, name: "Woods", id: "Woods" },
             { scene: blackforest.EndingGood, name: "EndingGood", id: "EndingGood" },
             { scene: blackforest.EndingBad, name: "EndingBad", id: "EndingBad" },

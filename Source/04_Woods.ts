@@ -12,10 +12,13 @@ namespace blackforest {
         ƒS.Speech.setTickerDelays(30, 2);
 
         //Scene 1
+        ƒS.Sound.fade(sound.travelLoop, 0, 2);
+        ƒS.Sound.fade(sound.riverLoop, 0, 0.5);
         await ƒS.Location.show(locations.woods01);
         //check time value for debug
         console.log(dataForProgress.Points.time);
         await ƒS.update(1);
+        ƒS.Sound.fade(sound.woodsLoop, 0.5, 3, true);
         await ƒS.Speech.tell(characters.Narrator, "In front of you you see another, much more narrow path forging through an overgrown thicket and you’re barely able to make out where it leads. Without thinking about it too much you head on into the unknown.");
         ƒS.Speech.clear();
 
@@ -45,6 +48,7 @@ namespace blackforest {
         //Scene 4
         await ƒS.Location.show(locations.woods04);
         await ƒS.update(1);
+        ƒS.Sound.play(sound.glade, 1);
         await ƒS.Speech.tell(characters.Narrator, "Suddenly you step out of the woods onto a glade between the trees, the sun is shining down and as your eyes get used to the brightness, in front of you, you see it..");
         ƒS.Speech.clear();
 

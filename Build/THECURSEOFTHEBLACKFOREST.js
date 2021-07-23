@@ -17,7 +17,7 @@ var blackforest;
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.update(2);
         //Scene 1
-        blackforest.ƒS.Sound.fade(blackforest.sound.arrivalLoop, 0.2, 0.1, true);
+        blackforest.ƒS.Sound.fade(blackforest.sound.arrivalLoop, 1, 0.5, true);
         await blackforest.ƒS.Location.show(blackforest.locations.arrival01);
         await blackforest.ƒS.update(blackforest.transition.blur.duration, blackforest.transition.blur.alpha, blackforest.transition.blur.edge);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Walking, walking, walking... The last couple of days have been quite a journey. Although nothing special has really happened on the way, you're glad you have finally arrived here at the black forest.");
@@ -61,6 +61,7 @@ var blackforest;
         blackforest.ƒS.Speech.clear();
         //Scene 5
         await blackforest.ƒS.Location.show(blackforest.locations.arrival05);
+        blackforest.ƒS.Sound.fade(blackforest.sound.riverLoop, 0.2, 0.5, true);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After another couple of minutes you reach a stream that has carved its way through the thicket between the trunks. This must be the river the warden was talking about.");
         blackforest.ƒS.Speech.clear();
@@ -90,6 +91,7 @@ var blackforest;
         await blackforest.ƒS.Character.hide(blackforest.overlays.eyes);
         //Back To Scene 5
         await blackforest.ƒS.Location.show(blackforest.locations.arrival05);
+        blackforest.ƒS.Sound.fade(blackforest.sound.riverLoop, 0.2, 0.5, true);
         await blackforest.ƒS.Character.show(blackforest.characters.monk, blackforest.characters.monk.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.monk, "You're already on your way to the quarry I reckon, they will definitely be able to support you! It is not far from here, just cross the river and follow the path.");
@@ -99,6 +101,7 @@ var blackforest;
         await blackforest.ƒS.update(1);
         //Blackscreen
         await blackforest.ƒS.Location.show(blackforest.locations.black);
+        blackforest.ƒS.Sound.fade(blackforest.sound.riverLoop, 0, 1);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After you watched Yareem make his way into the forest you carefully cross the bridge over the river and look for the path he was talking about.");
         blackforest.ƒS.Speech.clear();
@@ -109,6 +112,7 @@ var blackforest;
         blackforest.ƒS.Speech.clear();
         //Scene 8
         await blackforest.ƒS.Location.show(blackforest.locations.arrival08);
+        blackforest.ƒS.Sound.fade(blackforest.sound.waterfallLoop, 0.4, 0.5, true);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "After some time you reach the impressive scenery of a waterfall. What a beautiful, calming place. You think about taking a rest..");
         blackforest.ƒS.Speech.clear();
@@ -131,6 +135,7 @@ var blackforest;
         }
         //Scene 9
         await blackforest.ƒS.Location.show(blackforest.locations.arrival09);
+        blackforest.ƒS.Sound.fade(blackforest.sound.waterfallLoop, 0.1, 0.5, true);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "To your left you see a bridge across the river made of some wood planks. The Quarry can’t be far from here..");
         blackforest.ƒS.Speech.clear();
@@ -146,13 +151,14 @@ var blackforest;
         console.log("Quarry");
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
         //Blackscreen
-        blackforest.ƒS.Sound.fade(blackforest.sound.arrivalLoop, 0, 3);
+        blackforest.ƒS.Sound.fade(blackforest.sound.arrivalLoop, 0, 4);
+        blackforest.ƒS.Sound.fade(blackforest.sound.waterfallLoop, 0, 0.5);
         await blackforest.ƒS.Location.show(blackforest.locations.black);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "In the distance your hear the noise of pickaxes hitting on stone, this has to be it. You make your way around the next corner.");
         blackforest.ƒS.Speech.clear();
         //Scene 1
-        blackforest.ƒS.Sound.fade(blackforest.sound.quarryLoop, 0.4, 0.1, true);
+        blackforest.ƒS.Sound.fade(blackforest.sound.quarryLoop, 1.3, 2, true);
         await blackforest.ƒS.Location.show(blackforest.locations.quarry01);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Finally! In front of you you see the quarry, Beahorns working on the walls, mining stones and carrrying them away. The place is very busy and looks a bit chaotic at first glance, but as you watch the proceedings you recognize a very efficient system.");
@@ -202,6 +208,7 @@ var blackforest;
                 await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "It was great getting to meet you, you are the only hope we have got right now! To get to your destination just follow the path along the river until you get to the entrance of the woods, you won’t be able to miss it. Good luck my friend!");
                 await blackforest.ƒS.Character.hide(blackforest.characters.quill);
                 blackforest.ƒS.Speech.clear();
+                blackforest.ƒS.Sound.fade(blackforest.sound.quarryLoop, 0, 3);
                 await blackforest.ƒS.update(1);
                 return "Journey";
         }
@@ -214,6 +221,8 @@ var blackforest;
         console.log("River");
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
         //Scene 1
+        blackforest.ƒS.Sound.fade(blackforest.sound.travelLoop, 0.5, 0.5, true);
+        blackforest.ƒS.Sound.fade(blackforest.sound.riverLoop, 0.2, 0.5, true);
         await blackforest.ƒS.Location.show(blackforest.locations.river01);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "It’s your first time riding a boat and you are really excited. The view is great and since the weather is great you lean back, close your eyes and let the sun that is shining through the trees warm your skin.");
@@ -253,6 +262,7 @@ var blackforest;
         console.log("Journey");
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
         //Scene 1
+        blackforest.ƒS.Sound.fade(blackforest.sound.travelLoop, 0.5, 0.5, true);
         await blackforest.ƒS.Location.show(blackforest.locations.journey01);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "You leave the place over a massive bridge that is leading up onto a hill from where you get a nice view onto the quarry and the workings of the beahorns.");
@@ -288,10 +298,13 @@ var blackforest;
         };
         blackforest.ƒS.Speech.setTickerDelays(30, 2);
         //Scene 1
+        blackforest.ƒS.Sound.fade(blackforest.sound.travelLoop, 0, 2);
+        blackforest.ƒS.Sound.fade(blackforest.sound.riverLoop, 0, 0.5);
         await blackforest.ƒS.Location.show(blackforest.locations.woods01);
         //check time value for debug
         console.log(blackforest.dataForProgress.Points.time);
         await blackforest.ƒS.update(1);
+        blackforest.ƒS.Sound.fade(blackforest.sound.woodsLoop, 0.5, 3, true);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "In front of you you see another, much more narrow path forging through an overgrown thicket and you’re barely able to make out where it leads. Without thinking about it too much you head on into the unknown.");
         blackforest.ƒS.Speech.clear();
         //Scene 2
@@ -316,6 +329,7 @@ var blackforest;
         //Scene 4
         await blackforest.ƒS.Location.show(blackforest.locations.woods04);
         await blackforest.ƒS.update(1);
+        blackforest.ƒS.Sound.play(blackforest.sound.glade, 1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Suddenly you step out of the woods onto a glade between the trees, the sun is shining down and as your eyes get used to the brightness, in front of you, you see it..");
         blackforest.ƒS.Speech.clear();
         //Scene 5
@@ -348,9 +362,11 @@ var blackforest;
         await blackforest.ƒS.update(blackforest.transition.blur.duration, blackforest.transition.blur.alpha, blackforest.transition.blur.edge);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Suddenly you hear a rustling noise behind you!");
         blackforest.ƒS.Speech.clear();
+        blackforest.ƒS.Sound.play(blackforest.sound.endingSecret, 1);
         await blackforest.ƒS.Location.show(blackforest.locations.white);
         await blackforest.ƒS.update(0);
         await blackforest.ƒS.Location.show(blackforest.locations.black);
+        blackforest.ƒS.Sound.fade(blackforest.sound.woodsLoop, 0, 4);
         await blackforest.ƒS.update(4);
         let replayButtonOptions = {
             replay: "Play again",
@@ -358,6 +374,7 @@ var blackforest;
         let replayButton = await blackforest.ƒS.Menu.getInput(replayButtonOptions, "Replay");
         switch (replayButton) {
             case replayButtonOptions.replay:
+                blackforest.dataForProgress.Points.time = 0;
                 return "Arrival";
         }
     }
@@ -378,10 +395,14 @@ var blackforest;
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Location.show(blackforest.locations.endingGood);
+        blackforest.ƒS.Sound.fade(blackforest.sound.woodsLoop, 0, 3);
+        blackforest.ƒS.Sound.play(blackforest.sound.endingGood, 1);
+        blackforest.ƒS.Sound.fade(blackforest.sound.birdsLoop, 1, 1, true);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "What a journey this has been! You slowly walk back the way you came and enjoy the sun on your skin. Life has come back into the forest and the birds are singing in the trees again, what a beautiful day…");
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Location.show(blackforest.locations.black);
+        blackforest.ƒS.Sound.fade(blackforest.sound.birdsLoop, 0, 3);
         await blackforest.ƒS.update(3);
         let replayButtonOptions = {
             replay: "Play again",
@@ -389,6 +410,7 @@ var blackforest;
         let replayButton = await blackforest.ƒS.Menu.getInput(replayButtonOptions, "Replay");
         switch (replayButton) {
             case replayButtonOptions.replay:
+                blackforest.dataForProgress.Points.time = 0;
                 return "Arrival";
         }
     }
@@ -404,6 +426,8 @@ var blackforest;
         await blackforest.ƒS.Character.hide(blackforest.characters.moora);
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Location.show(blackforest.locations.black);
+        blackforest.ƒS.Sound.fade(blackforest.sound.woodsLoop, 0, 3);
+        blackforest.ƒS.Sound.play(blackforest.sound.endingBad, 1);
         await blackforest.ƒS.update(3);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "In shock you stumble back into the woods behind you, how could this have happened? You realize that you have been way too careless and lost focus on your mission too easily, what a rookie mistake..");
         blackforest.ƒS.Speech.clear();

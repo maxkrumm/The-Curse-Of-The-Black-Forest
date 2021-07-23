@@ -11,6 +11,8 @@ namespace blackforest {
     await ƒS.Character.hide(characters.moora);
     ƒS.Speech.clear();
     await ƒS.Location.show(locations.black);
+    ƒS.Sound.fade(sound.woodsLoop, 0, 3);
+    ƒS.Sound.play(sound.endingBad, 1);
     await ƒS.update(3);
     await ƒS.Speech.tell(characters.Narrator, "In shock you stumble back into the woods behind you, how could this have happened? You realize that you have been way too careless and lost focus on your mission too easily, what a rookie mistake..");
     ƒS.Speech.clear();

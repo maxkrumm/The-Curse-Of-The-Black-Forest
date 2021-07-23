@@ -7,6 +7,7 @@ namespace blackforest {
         ƒS.Speech.setTickerDelays(30, 2);
 
         //Scene 1
+        ƒS.Sound.fade(sound.travelLoop, 0.5, 0.5, true);
         await ƒS.Location.show(locations.journey01);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.Narrator, "You leave the place over a massive bridge that is leading up onto a hill from where you get a nice view onto the quarry and the workings of the beahorns.");

@@ -19,7 +19,7 @@ namespace blackforest {
     await ƒS.update(2);
 
     //Scene 1
-    ƒS.Sound.fade(sound.arrivalLoop, 0.2, 0.1, true);
+    ƒS.Sound.fade(sound.arrivalLoop, 1, 0.5, true);
     await ƒS.Location.show(locations.arrival01);
     await ƒS.update(transition.blur.duration, transition.blur.alpha, transition.blur.edge);
     await ƒS.Speech.tell(characters.Narrator, "Walking, walking, walking... The last couple of days have been quite a journey. Although nothing special has really happened on the way, you're glad you have finally arrived here at the black forest.");
@@ -68,6 +68,7 @@ namespace blackforest {
 
     //Scene 5
     await ƒS.Location.show(locations.arrival05);
+    ƒS.Sound.fade(sound.riverLoop, 0.2, 0.5, true);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Narrator, "After another couple of minutes you reach a stream that has carved its way through the thicket between the trunks. This must be the river the warden was talking about.");
     ƒS.Speech.clear();
@@ -99,6 +100,7 @@ namespace blackforest {
 
     //Back To Scene 5
     await ƒS.Location.show(locations.arrival05);
+    ƒS.Sound.fade(sound.riverLoop, 0.2, 0.5, true);
     await ƒS.Character.show(characters.monk, characters.monk.pose.normal, ƒS.positions.bottomleft);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.monk, "You're already on your way to the quarry I reckon, they will definitely be able to support you! It is not far from here, just cross the river and follow the path.");
@@ -109,6 +111,7 @@ namespace blackforest {
 
     //Blackscreen
     await ƒS.Location.show(locations.black);
+    ƒS.Sound.fade(sound.riverLoop, 0, 1);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Narrator, "After you watched Yareem make his way into the forest you carefully cross the bridge over the river and look for the path he was talking about.");
     ƒS.Speech.clear();
@@ -121,6 +124,7 @@ namespace blackforest {
 
     //Scene 8
     await ƒS.Location.show(locations.arrival08);
+    ƒS.Sound.fade(sound.waterfallLoop, 0.4, 0.5, true);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Narrator, "After some time you reach the impressive scenery of a waterfall. What a beautiful, calming place. You think about taking a rest..");
     ƒS.Speech.clear();
@@ -142,14 +146,17 @@ namespace blackforest {
         ƒS.Speech.clear();
         break;
       case decisionRestAnswers.continue:
+
         break;
     }
 
     //Scene 9
     await ƒS.Location.show(locations.arrival09);
+    ƒS.Sound.fade(sound.waterfallLoop, 0.1, 0.5, true);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Narrator, "To your left you see a bridge across the river made of some wood planks. The Quarry can’t be far from here..");
     ƒS.Speech.clear();
+
 
 
 

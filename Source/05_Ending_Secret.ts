@@ -14,9 +14,11 @@ namespace blackforest {
       await ƒS.update(transition.blur.duration, transition.blur.alpha, transition.blur.edge);
       await ƒS.Speech.tell(characters.Narrator, "Suddenly you hear a rustling noise behind you!");
       ƒS.Speech.clear();
+      ƒS.Sound.play(sound.endingSecret, 1);
       await ƒS.Location.show(locations.white);
       await ƒS.update(0);
       await ƒS.Location.show(locations.black);
+      ƒS.Sound.fade(sound.woodsLoop, 0, 4);
       await ƒS.update(4);
       
       let replayButtonOptions = {
@@ -27,6 +29,7 @@ namespace blackforest {
   
       switch (replayButton) {
         case replayButtonOptions.replay:
+          dataForProgress.Points.time = 0;
           return "Arrival";
       }
     

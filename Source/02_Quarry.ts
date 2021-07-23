@@ -7,14 +7,15 @@ namespace blackforest {
         ƒS.Speech.setTickerDelays(30, 2);
 
         //Blackscreen
-        ƒS.Sound.fade(sound.arrivalLoop, 0, 3);
+        ƒS.Sound.fade(sound.arrivalLoop, 0, 4);
+        ƒS.Sound.fade(sound.waterfallLoop, 0, 0.5);
         await ƒS.Location.show(locations.black);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.Narrator, "In the distance your hear the noise of pickaxes hitting on stone, this has to be it. You make your way around the next corner.");
         ƒS.Speech.clear();
 
         //Scene 1
-        ƒS.Sound.fade(sound.quarryLoop, 0.4, 0.1, true);
+        ƒS.Sound.fade(sound.quarryLoop, 1.3, 2, true);
         await ƒS.Location.show(locations.quarry01);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.Narrator, "Finally! In front of you you see the quarry, Beahorns working on the walls, mining stones and carrrying them away. The place is very busy and looks a bit chaotic at first glance, but as you watch the proceedings you recognize a very efficient system.");
@@ -69,6 +70,7 @@ namespace blackforest {
                 await ƒS.Speech.tell(characters.quill, "It was great getting to meet you, you are the only hope we have got right now! To get to your destination just follow the path along the river until you get to the entrance of the woods, you won’t be able to miss it. Good luck my friend!");
                 await ƒS.Character.hide(characters.quill);
                 ƒS.Speech.clear();
+                ƒS.Sound.fade(sound.quarryLoop, 0, 3);
                 await ƒS.update(1);
                 return "Journey";
         }

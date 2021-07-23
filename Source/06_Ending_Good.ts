@@ -17,11 +17,15 @@ namespace blackforest {
     await ƒS.update(1);
 
     await ƒS.Location.show(locations.endingGood);
+    ƒS.Sound.fade(sound.woodsLoop, 0, 3);
+    ƒS.Sound.play(sound.endingGood, 1);
+    ƒS.Sound.fade(sound.birdsLoop, 1, 1, true);
     await ƒS.update(1);
     await ƒS.Speech.tell(characters.Narrator, "What a journey this has been! You slowly walk back the way you came and enjoy the sun on your skin. Life has come back into the forest and the birds are singing in the trees again, what a beautiful day…");
     ƒS.Speech.clear();
 
     await ƒS.Location.show(locations.black);
+    ƒS.Sound.fade(sound.birdsLoop, 0, 3);
     await ƒS.update(3);
 
     let replayButtonOptions = {
@@ -32,6 +36,7 @@ namespace blackforest {
 
     switch (replayButton) {
       case replayButtonOptions.replay:
+        dataForProgress.Points.time = 0;
         return "Arrival";
     }
 

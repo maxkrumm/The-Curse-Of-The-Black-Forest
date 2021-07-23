@@ -7,6 +7,8 @@ namespace blackforest {
         ƒS.Speech.setTickerDelays(30, 2);
 
         //Scene 1
+        ƒS.Sound.fade(sound.travelLoop, 0.5, 0.5, true);
+        ƒS.Sound.fade(sound.riverLoop, 0.2, 0.5, true);
         await ƒS.Location.show(locations.river01);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.Narrator, "It’s your first time riding a boat and you are really excited. The view is great and since the weather is great you lean back, close your eyes and let the sun that is shining through the trees warm your skin.");

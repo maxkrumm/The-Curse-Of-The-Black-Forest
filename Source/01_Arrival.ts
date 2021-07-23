@@ -50,7 +50,7 @@ namespace blackforest {
     dataForProgress.Protagonist.name = await ƒS.Speech.getInput();
     console.log(dataForProgress.Protagonist.name);
     await ƒS.update(1);
-    await ƒS.Speech.tell(characters.warden, "Ah, nice to finally meet you " + dataForProgress.Protagonist.name + ", I know why you are here, the forest has been awaiting your arrival. I assume you might have a lot of questions, you will have to wait a bit longer, I am not the one who can answer them.");
+    await ƒS.Speech.tell(characters.warden, "Ah, nice to finally meet you " + dataForProgress.Protagonist.name + ", I know why you are here! The forest has been awaiting your arrival. I assume you might have a lot of questions.. you will have to wait a bit longer, I am not the one who can answer them.");
     await ƒS.Speech.tell(characters.warden, "Please go see the people at the quarry and talk to Quill, the Head of the Beahorns. He is already waiting there for you, he will tell you what to do next!");
     await ƒS.Speech.tell(characters.warden, "Thank you for coming, we really need your help here. Now go on and take care, just follow the river and you can't miss the quarry!");
     await ƒS.update(1);
@@ -74,7 +74,7 @@ namespace blackforest {
     ƒS.Speech.clear();
     await ƒS.Character.show(overlays.monk, overlays.monk.pose.normal, ƒS.positions.bottomleft);
     await ƒS.update(1);
-    await ƒS.Speech.tell(characters.Narrator, "To your left you see a narrow bridge and on it you see a creature holding a walking stick, trying to keep its balance. He looks a bit clumsy with his long robe, but manages to cross the river with surprising confidence. As soon as he notices you he comes up and starts talking.");
+    await ƒS.Speech.tell(characters.Narrator, "To your left you see a narrow bridge and on it you see a creature holding a walking stick, trying to keep its balance. He looks a bit clumsy with his long robe, but manages to cross the river with surprising confidence. As soon as he notices you, he comes up and starts talking.");
     await ƒS.Character.hide(overlays.monk);
     ƒS.Speech.clear();
     await ƒS.Character.show(characters.monk, characters.monk.pose.normal, ƒS.positions.bottomleft);
@@ -119,7 +119,7 @@ namespace blackforest {
     //Scene 7
     await ƒS.Location.show(locations.arrival07);
     await ƒS.update(1);
-    await ƒS.Speech.tell(characters.Narrator, "The forest is getting denser again but can clearly make out the path along some dead trees. This place is very different from everywhere you have been before, the mystical aura that surrounds everything here has completely caught you. You feel motivated and excited to find out what adventures may lie ahead.");
+    await ƒS.Speech.tell(characters.Narrator, "The forest is getting denser again but can clearly make out the path along some dead trees. This place is very different from everywhere you have been before, the mystical aura that surrounds everything here has completely caught you. You feel motivated and excited to find out what adventures lay ahead.");
     ƒS.Speech.clear();
 
     //Scene 8

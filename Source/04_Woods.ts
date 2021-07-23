@@ -36,7 +36,7 @@ namespace blackforest {
         //Scene 3
         await ƒS.Location.show(locations.woods03);
         await ƒS.update(1);
-        await ƒS.Speech.tell(characters.Narrator, "Walking is feeling a lot easier than before and stop paying attention to your steps. The path has dissolved into a mossy ground beneath your feet and you feel like you’re walking on clouds, dreaming away..");
+        await ƒS.Speech.tell(characters.Narrator, "Walking feels a lot easier than before and you stop paying attention to your steps. The path has dissolved into a mossy ground beneath your feet and you feel like you’re walking on clouds, dreaming away..");
         ƒS.Speech.clear();
 
         //Blackscreen

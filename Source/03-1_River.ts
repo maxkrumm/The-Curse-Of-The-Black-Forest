@@ -33,7 +33,7 @@ namespace blackforest {
         await ƒS.update(1);
         await ƒS.Character.show(characters.quill, characters.quill.pose.normal, ƒS.positions.bottomleft);
         await ƒS.update(1);
-        await ƒS.Speech.tell(characters.quill, "Alright, this is as far as I can take you, you’ll have to walk the rest on your own. A short way down the path behind you you will find the entrance to the mystical part of the woods where the guardian of the forest resides.");
+        await ƒS.Speech.tell(characters.quill, "Alright, this is as far as I can take you, you’ll have to walk the rest on your own. A short way down the path behind you, you will find the entrance to the mystical part of the woods where the guardian of the forest resides.");
         await ƒS.Character.hide(characters.quill);
         await ƒS.Character.show(characters.quill, characters.quill.pose.laughing, ƒS.positions.bottomleft);
         await ƒS.update(1);
@@ -42,7 +42,6 @@ namespace blackforest {
         await ƒS.Character.hide(characters.quill);
         ƒS.Speech.clear();
         await ƒS.update(1);
-        
         
     };
 }

@@ -45,7 +45,7 @@ var blackforest;
         blackforest.dataForProgress.Protagonist.name = await blackforest.ƒS.Speech.getInput();
         console.log(blackforest.dataForProgress.Protagonist.name);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Ah, nice to finally meet you " + blackforest.dataForProgress.Protagonist.name + ", I know why you are here, the forest has been awaiting your arrival. I assume you might have a lot of questions, you will have to wait a bit longer, I am not the one who can answer them.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Ah, nice to finally meet you " + blackforest.dataForProgress.Protagonist.name + ", I know why you are here! The forest has been awaiting your arrival. I assume you might have a lot of questions.. you will have to wait a bit longer, I am not the one who can answer them.");
         await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Please go see the people at the quarry and talk to Quill, the Head of the Beahorns. He is already waiting there for you, he will tell you what to do next!");
         await blackforest.ƒS.Speech.tell(blackforest.characters.warden, "Thank you for coming, we really need your help here. Now go on and take care, just follow the river and you can't miss the quarry!");
         await blackforest.ƒS.update(1);
@@ -67,7 +67,7 @@ var blackforest;
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.show(blackforest.overlays.monk, blackforest.overlays.monk.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "To your left you see a narrow bridge and on it you see a creature holding a walking stick, trying to keep its balance. He looks a bit clumsy with his long robe, but manages to cross the river with surprising confidence. As soon as he notices you he comes up and starts talking.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "To your left you see a narrow bridge and on it you see a creature holding a walking stick, trying to keep its balance. He looks a bit clumsy with his long robe, but manages to cross the river with surprising confidence. As soon as he notices you, he comes up and starts talking.");
         await blackforest.ƒS.Character.hide(blackforest.overlays.monk);
         blackforest.ƒS.Speech.clear();
         await blackforest.ƒS.Character.show(blackforest.characters.monk, blackforest.characters.monk.pose.normal, blackforest.ƒS.positions.bottomleft);
@@ -108,7 +108,7 @@ var blackforest;
         //Scene 7
         await blackforest.ƒS.Location.show(blackforest.locations.arrival07);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "The forest is getting denser again but can clearly make out the path along some dead trees. This place is very different from everywhere you have been before, the mystical aura that surrounds everything here has completely caught you. You feel motivated and excited to find out what adventures may lie ahead.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "The forest is getting denser again but can clearly make out the path along some dead trees. This place is very different from everywhere you have been before, the mystical aura that surrounds everything here has completely caught you. You feel motivated and excited to find out what adventures lay ahead.");
         blackforest.ƒS.Speech.clear();
         //Scene 8
         await blackforest.ƒS.Location.show(blackforest.locations.arrival08);
@@ -244,7 +244,7 @@ var blackforest;
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "Alright, this is as far as I can take you, you’ll have to walk the rest on your own. A short way down the path behind you you will find the entrance to the mystical part of the woods where the guardian of the forest resides.");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.quill, "Alright, this is as far as I can take you, you’ll have to walk the rest on your own. A short way down the path behind you, you will find the entrance to the mystical part of the woods where the guardian of the forest resides.");
         await blackforest.ƒS.Character.hide(blackforest.characters.quill);
         await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.laughing, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);
@@ -320,7 +320,7 @@ var blackforest;
         //Scene 3
         await blackforest.ƒS.Location.show(blackforest.locations.woods03);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Walking is feeling a lot easier than before and stop paying attention to your steps. The path has dissolved into a mossy ground beneath your feet and you feel like you’re walking on clouds, dreaming away..");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Walking feels a lot easier than before and you stop paying attention to your steps. The path has dissolved into a mossy ground beneath your feet and you feel like you’re walking on clouds, dreaming away..");
         blackforest.ƒS.Speech.clear();
         //Blackscreen
         await blackforest.ƒS.Location.show(blackforest.locations.black);
@@ -358,7 +358,7 @@ var blackforest;
         //Ending Scene 1
         await blackforest.ƒS.Location.show(blackforest.locations.woods03);
         await blackforest.ƒS.update(1);
-        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Walking is feeling a lot easier than before and stop paying attention to your steps. The path has dissolved into a mossy ground beneath your feet and you feel like you’re walking on clouds, dreaming away..");
+        await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Walking feels a lot easier than before and you stop paying attention to your steps. The path has dissolved into a mossy ground beneath your feet and you feel like you’re walking on clouds, dreaming away..");
         await blackforest.ƒS.Location.show(blackforest.locations.black);
         await blackforest.ƒS.update(blackforest.transition.blur.duration, blackforest.transition.blur.alpha, blackforest.transition.blur.edge);
         await blackforest.ƒS.Speech.tell(blackforest.characters.Narrator, "Suddenly you hear a rustling noise behind you!");

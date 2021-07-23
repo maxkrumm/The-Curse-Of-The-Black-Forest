@@ -18,7 +18,7 @@ https://drive.google.com/file/d/1E2JZnPMc_wUv9HjJYXNpdrqQlAvrW9yG/view?usp=shari
 
 | Nr | Bezeichnung           | Inhalt                                                                                                                                                                                                                                                                         |
 |---:|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    | Titel                 | The Curse OF The Black Forest
+|    | Titel                 | The Curse Of The Black Forest
 |    | Name                  | Maximilian Krumm
 |    | Matrikelnummer        | 262672
 |  1 | Konzeption     | Story, Tree und Dialogskript                                                                                                                           |

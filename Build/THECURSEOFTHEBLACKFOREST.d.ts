@@ -35,6 +35,16 @@ declare namespace blackforest {
     let sound: {
         arrivalLoop: string;
         quarryLoop: string;
+        travelLoop: string;
+        woodsLoop: string;
+        forestLoop: string;
+        riverLoop: string;
+        waterfallLoop: string;
+        birdsLoop: string;
+        endingGood: string;
+        endingBad: string;
+        endingSecret: string;
+        glade: string;
     };
     let locations: {
         black: {

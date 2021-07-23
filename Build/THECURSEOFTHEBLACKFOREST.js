@@ -436,7 +436,17 @@ var blackforest;
         //Musik
         arrivalLoop: "Sound/Music/mus_arrival_loop.wav",
         quarryLoop: "Sound/Music/mus_quarry_loop.wav",
+        travelLoop: "Sound/Music/mus_travel_loop.wav",
+        woodsLoop: "Sound/Music/mus_woods_loop.wav",
         //Sounds
+        forestLoop: "Sound/SFX/amb_forest_loop.wav",
+        riverLoop: "Sound/SFX/amb_river_loop.wav",
+        waterfallLoop: "Sound/SFX/amb_waterfall_loop.wav",
+        birdsLoop: "Sound/SFX/amb_birds_loop.wav",
+        endingGood: "Sound/SFX/sti_ending_good.wav",
+        endingBad: "Sound/SFX/sti_ending_bad.wav",
+        endingSecret: "Sound/SFX/sti_ending_secret.wav",
+        glade: "Sound/SFX/sti_glade.wav"
     };
     blackforest.locations = {
         black: {

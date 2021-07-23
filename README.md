@@ -33,7 +33,7 @@ https://drive.google.com/file/d/1E2JZnPMc_wUv9HjJYXNpdrqQlAvrW9yG/view?usp=shari
 |  10 | Punkteverteilungssystem     | Punktesystem zeichnet die Dauer der Reise des Helden auf, basierend auf den Entscheidungen des Spielers.                                                                                                                                                          |
 |  11 | Inventory- und Item-System     | Nicht implementiert.                                                                                                                                                              |
 | 12 | Animation     | Animationen für einzelne Auftritte von NPCs.                                                                                                                                                                 |
-| 13 | Styling          | FÜr einen einheltichen Mangalook wurden die sichtbaren Elemente mit CSS im Comicstil gestylt.                                                                                                                                                                               |
+| 13 | Styling          | Für einen einheltichen Mangalook wurden die sichtbaren Elemente mit CSS im Comicstil gestylt.                                                                                                                                                                               |
 | 14 | Enden          | Es gibt drei Enden welche abhängig vom Punktesystem getriggert wedern.                                                                                                                                                                                 |
 <br>
 

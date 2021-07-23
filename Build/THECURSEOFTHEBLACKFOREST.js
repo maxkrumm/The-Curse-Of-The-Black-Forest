@@ -240,6 +240,7 @@ var blackforest;
         blackforest.ƒS.Speech.clear();
         //Scene 3
         await blackforest.ƒS.Location.show(blackforest.locations.river03);
+        blackforest.ƒS.Sound.fade(blackforest.sound.riverLoop, 0.1, 0.5, true);
         await blackforest.ƒS.update(1);
         await blackforest.ƒS.Character.show(blackforest.characters.quill, blackforest.characters.quill.pose.normal, blackforest.ƒS.positions.bottomleft);
         await blackforest.ƒS.update(1);

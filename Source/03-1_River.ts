@@ -29,6 +29,7 @@ namespace blackforest {
 
         //Scene 3
         await ƒS.Location.show(locations.river03);
+        ƒS.Sound.fade(sound.riverLoop, 0.1, 0.5, true);
         await ƒS.update(1);
         await ƒS.Character.show(characters.quill, characters.quill.pose.normal, ƒS.positions.bottomleft);
         await ƒS.update(1);

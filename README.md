@@ -2,13 +2,13 @@
 A FUDGE module for the easy development of interactive stories, visual novels and simple adventure games
 
 Github Pages
-https://maxkrumm.github.io/VISUALNOVEL/Play.html
+https://maxkrumm.github.io/The-Curse-Of-The-Black-Forest/Play.html
 
 Code
-https://github.com/maxkrumm/VISUALNOVEL/tree/main/Source
+https://github.com/maxkrumm/The-Curse-Of-The-Black-Forest/tree/main/Source
 
 Konzept
-https://github.com/maxkrumm/VISUALNOVEL/tree/main/Konzept
+https://github.com/maxkrumm/The-Curse-Of-The-Black-Forest/tree/main/Konzept
 
 Gepackter Ordner
 https://drive.google.com/file/d/1E2JZnPMc_wUv9HjJYXNpdrqQlAvrW9yG/view?usp=sharing

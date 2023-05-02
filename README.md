@@ -2,7 +2,7 @@
 A FUDGE module for the easy development of interactive stories, visual novels and simple adventure games
 
 Github Pages
-https://maxkrumm.github.io/VISUALNOVEL/Template.html
+https://maxkrumm.github.io/VISUALNOVEL/Play.html
 
 Code
 https://github.com/maxkrumm/VISUALNOVEL/tree/main/Source
